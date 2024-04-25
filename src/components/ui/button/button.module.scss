@@ -1,0 +1,66 @@
+.button {
+  all: unset;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+  padding: 6px 28px;
+
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-m);
+  color: var(--color-light-100);
+
+  border-radius: 4px;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-info-500);
+  }
+
+  &:focus {
+    border: 2px solid var(--color-info-700);
+  }
+
+  &:disabled {
+    color: var(--color-light-900);
+  }
+}
+
+.primary {
+  background-color: var(--color-accent-500);
+  box-shadow: 0 4px 18px 0 var(--color-accent-500);
+
+  &:hover {
+    background-color: var(--color-accent-300);
+  }
+
+  &:active {
+    background-color: var(--color-accent-700);
+  }
+
+  &:disabled {
+    background-color: var(--color-info-900);
+  }
+}
+
+.secondary {
+  background-color: var(--color-dark-300);
+  box-shadow: 0 2px 10px 0 var(--color-dark-300);
+
+  &:hover {
+    background-color: var(--color-dark-100);
+  }
+
+  &:active {
+    background-color: var(--color-dark-500);
+  }
+
+  &:disabled {
+    background-color: var(--color-dark-300);
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
