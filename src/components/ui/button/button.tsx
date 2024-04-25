@@ -9,7 +9,7 @@ export type ButtonProps<T extends ElementType> = {
   variant?: 'primary' | 'secondary'
 } & ComponentPropsWithoutRef<T>
 
-/** ZA: ordinary button but with custom styles */
+/** ZA: polymorphic button with custom styles */
 export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) => {
   const { as: Component = 'button', className, fullWidth, variant = 'primary', ...rest } = props
 
