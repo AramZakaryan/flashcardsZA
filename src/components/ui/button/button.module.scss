@@ -6,10 +6,7 @@
   box-sizing: border-box;
   padding: 6px 28px;
 
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-s);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-m);
+  font: var(--font-subtitle-2);
   color: var(--color-light-100);
 
   border-radius: 4px;
@@ -29,7 +26,7 @@
 
 .primary {
   background-color: var(--color-accent-500);
-  box-shadow: 0 4px 18px 0 var(--color-accent-500);
+  box-shadow: 0 4px 18px 0 var(--color-button-accent-shadow);
 
   &:hover {
     background-color: var(--color-accent-300);
@@ -46,7 +43,7 @@
 
 .secondary {
   background-color: var(--color-dark-300);
-  box-shadow: 0 2px 10px 0 var(--color-dark-300);
+  box-shadow: 0 2px 10px 0 var(--color-button-dark-shadow);
 
   &:hover {
     background-color: var(--color-dark-100);

@@ -17,4 +17,30 @@
   // font weights
   --font-weight-regular: 400;
   --font-weight-bold: 700;
+
+  // fonts
+  --font-h1: normal normal var(--font-weight-bold) normal var(--font-size-xxl) /
+    var(--line-height-l) var(--font-family-primary);
+  --font-h2: normal normal var(--font-weight-bold) normal var(--font-size-xl) / var(--line-height-l)
+    var(--font-family-primary);
+  --font-h3: normal normal var(--font-weight-bold) normal var(--font-size-l) / var(--line-height-m)
+    var(--font-family-primary);
+  --font-h4: normal normal var(--font-weight-bold) normal var(--font-size-m) / var(--line-height-m)
+    var(--font-family-primary);
+  --font-body-1: normal normal var(--font-weight-regular) normal var(--font-size-m) /
+    var(--line-height-m) var(--font-family-primary);
+  --font-subtitle-1: normal normal var(--font-weight-bold) normal var(--font-size-m) /
+    var(--line-height-m) var(--font-family-primary);
+  --font-body-2: normal normal var(--font-weight-regular) normal var(--font-size-s) /
+    var(--line-height-m) var(--font-family-primary);
+  --font-subtitle-2: normal normal var(--font-weight-bold) normal var(--font-size-s) /
+    var(--line-height-m) var(--font-family-primary);
+  --font-capaition: normal normal var(--font-weight-regular) normal var(--font-size-xs) /
+    var(--line-height-s) var(--font-family-primary);
+  --font-overline: normal normal var(--font-weight-bold) normal var(--font-size-xs) /
+    var(--line-height-s) var(--font-family-primary);
+  --font-link-1: normal normal var(--font-weight-regular) normal var(--font-size-s) /
+    var(--line-height-m) var(--font-family-primary);
+  --font-link-2: normal normal var(--font-weight-regular) normal var(--font-size-xs) /
+    var(--line-height-s) var(--font-family-primary);
 }

@@ -1,0 +1,115 @@
+/* reset */
+button {
+  all: unset;
+  box-sizing: border-box;
+}
+
+.CheckboxRoot {
+  --CheckboxRoot-shadow: 0 0 10px 2px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  border: 1px solid var(--color-light-900);
+  border-radius: 2px;
+
+  &:hover {
+    box-shadow: var(--CheckboxRoot-shadow) var(--color-dark-500);
+  }
+
+  //&:hover::after {
+  //  content: '';
+  //
+  //  position: absolute;
+  //  z-index: -1;
+  //
+  //  width: 36px;
+  //  height: 36px;
+  //
+  //  background: var(--color-dark-500);
+  //  border-radius: 50%;
+  //}
+
+  &:active {
+    box-shadow: var(--CheckboxRoot-shadow) var(--color-dark-100);
+  }
+
+  //&:active::after {
+  //  content: '';
+  //
+  //  position: absolute;
+  //  z-index: -1;
+  //
+  //  width: 36px;
+  //  height: 36px;
+  //
+  //  background: var(--color-dark-100);
+  //  border-radius: 50%;
+  //}
+
+  //&:focus::after {
+  //  content: '';
+  //
+  //  position: absolute;
+  //  z-index: -1;
+  //
+  //  width: 36px;
+  //  height: 36px;
+  //
+  //  background: var(--color-dark-100);
+  //  border-radius: 50%;
+  //}
+
+  &:disabled {
+    box-shadow: var(--CheckboxRoot-shadow) var(--color-dark-checkbox-disables);
+  }
+
+  //&:disabled::after {
+  //  content: '';
+  //
+  //  position: absolute;
+  //  z-index: -1;
+  //
+  //  width: 36px;
+  //  height: 36px;
+  //
+  //  background: var(--color-dark-checkbox-disables);
+  //  border-radius: 50%;
+  //}
+}
+
+.CheckboxRootChecked {
+  background-color: var(--color-light-100);
+}
+
+.CheckboxRootDisabled {
+  background-color: var(--color-dark-100);
+}
+
+.CheckboxIndicator {
+  color: var(--color-dark-900);
+}
+
+.CheckboxIndicatorDisabled {
+  color: var(--color-light-700);
+}
+
+.CheckboxIndicator svg {
+  width: 18px;
+  height: 18px;
+  margin-top: 4px;
+}
+
+.Label {
+  padding-left: 0.5em;
+  font: var(--font-body-2);
+  color: var(--color-dark-900);
+}
+
+.LabelDisabled {
+  color: var(--color-dark-100);
+}
