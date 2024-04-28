@@ -5,12 +5,11 @@ import { CheckboxComponent } from './'
 const meta = {
   argTypes: {
     checked: {
-      control: { type: 'radio' },
-      options: [true, false],
+      control: { type: 'inline-radio' },
+      options: [true, false, 'indeterminate'],
     },
     disabled: {
-      control: { type: 'radio' },
-      options: [true, false],
+      control: { type: 'boolean' },
     },
   },
   component: CheckboxComponent,
