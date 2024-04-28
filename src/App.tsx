@@ -1,8 +1,12 @@
 // import { Button } from '@/components/ui/button'
+import { useState } from 'react'
+
 // import { Card } from '@/components/ui/card'
 import { CheckboxComponent } from '@/components/ui/checkbox/checkbox'
 
 export function App() {
+  const [checked, setChacked] = useState<'indeterminate' | boolean>(false)
+
   return (
     <>
       <div>Hello</div>
@@ -17,7 +21,7 @@ export function App() {
       {/*  <Card />*/}
       {/*</div>*/}
       <div style={{ marginLeft: '50px', marginTop: '50px' }}>
-        <CheckboxComponent />
+        <CheckboxComponent checked={checked} setChecked={setChacked} />
       </div>
     </>
   )

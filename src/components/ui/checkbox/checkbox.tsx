@@ -6,12 +6,12 @@ import { CheckIcon } from '@radix-ui/react-icons'
 import s from './checkbox.module.scss'
 
 type Props = {
+  checked?: 'indeterminate' | boolean
   disabled?: boolean
+  setChecked: (s: Checkbox.CheckedState) => void
 }
 
-export const CheckboxComponent = ({ disabled = false }: Props) => {
-  const [checked, setChecked] = useState<'indeterminate' | boolean>(true)
-
+export const CheckboxComponent = ({ checked = false, disabled = false, setChecked }: Props) => {
   return (
     <form>
       <div style={{ alignItems: 'center', display: 'flex' }}>
