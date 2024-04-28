@@ -17,7 +17,7 @@ export function App() {
       {/*  <Card />*/}
       {/*</div>*/}
       <div style={{ marginLeft: '50px', marginTop: '50px' }}>
-        <CheckboxComponent disabled />
+        <CheckboxComponent />
       </div>
     </>
   )
