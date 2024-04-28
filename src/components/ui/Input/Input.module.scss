@@ -12,7 +12,7 @@
   box-sizing: border-box;
   width: 284px;
   height: 36px;
-  padding: 0.75em 2.25em 0.75em 0.75em;
+  padding: 0.75em;
 
   font: var(--font-body-1);
   color: var(--color-dark-300);
@@ -34,6 +34,14 @@
     color: var(--color-dark-500);
     border-color: var(--color-dark-500);
   }
+}
+
+.inputPassword {
+  padding-right: 2.25em;
+}
+
+.inputSearch {
+  padding-left: 1.75em;
 }
 
 .label {
@@ -67,5 +75,20 @@
 .eyeIconDisabled,
 .eyeIconDisabled:hover,
 .eyeIconDisabled:active {
+  color: var(--color-dark-500);
+}
+
+.searchIcon {
+  position: absolute;
+  top: 8px;
+  left: 0.5em;
+
+  width: 20px;
+  height: 20px;
+
+  color: var(--color-dark-300);
+}
+
+.searchIconDisabled {
   color: var(--color-dark-500);
 }

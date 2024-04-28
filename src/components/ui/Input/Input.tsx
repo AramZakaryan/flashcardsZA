@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, useState } from 'react'
 
-import { EyeNoneIcon, EyeOpenIcon } from '@radix-ui/react-icons'
+import { EyeNoneIcon, EyeOpenIcon, MagnifyingGlassIcon } from '@radix-ui/react-icons'
 
 import s from './Input.module.scss'
 
@@ -12,6 +12,7 @@ type Props = {
 
 export const Input = ({ disabled = false, label, variant = 'text' }: Props) => {
   const [passVisible, setPassVisible] = useState<boolean>(false)
+  const [inputValue, setInputValue] = useState<string>('')
 
   return (
     <>
@@ -19,20 +20,28 @@ export const Input = ({ disabled = false, label, variant = 'text' }: Props) => {
       <div className={s.inputContainer}>
         <input
           autoFocus
-          className={`${s.input} `}
+          className={`${s.input} ${variant === 'password' && s.inputPassword} ${
+            variant === 'search' && s.inputSearch
+          }`}
           disabled={disabled}
+          onInput={e => setInputValue(e.currentTarget.value)}
           type={passVisible ? 'text' : 'password'}
+          value={inputValue}
         />
-        {passVisible ? (
-          <EyeNoneIcon
-            className={`${s.eyeIcon} ${disabled && s.eyeIconDisabled}`}
-            onClick={() => !disabled && setPassVisible(false)}
-          />
-        ) : (
-          <EyeOpenIcon
-            className={`${s.eyeIcon} ${disabled && s.eyeIconDisabled}`}
-            onClick={() => !disabled && setPassVisible(true)}
-          />
+        {variant === 'password' &&
+          (passVisible ? (
+            <EyeNoneIcon
+              className={`${s.eyeIcon} ${disabled && s.eyeIconDisabled}`}
+              onClick={() => !disabled && setPassVisible(false)}
+            />
+          ) : (
+            <EyeOpenIcon
+              className={`${s.eyeIcon} ${disabled && s.eyeIconDisabled}`}
+              onClick={() => !disabled && setPassVisible(true)}
+            />
+          ))}
+        {variant === 'search' && (
+          <MagnifyingGlassIcon className={`${s.searchIcon} ${disabled && s.searchIconDisabled}`} />
         )}
       </div>
     </>
