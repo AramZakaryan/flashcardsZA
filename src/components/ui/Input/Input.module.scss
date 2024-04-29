@@ -44,6 +44,11 @@
   padding-left: 1.75em;
 }
 
+.inputError {
+  color: var(--color-danger-300);
+  border-color: var(--color-danger-300);
+}
+
 .label {
   font: var(--font-body-2);
   color: var(--color-dark-100);
@@ -91,4 +96,9 @@
 
 .searchIconDisabled {
   color: var(--color-dark-500);
+}
+
+.error {
+  font: var(--font-body-2);
+  color: var(--color-danger-300);
 }

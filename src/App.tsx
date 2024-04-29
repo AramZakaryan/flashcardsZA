@@ -26,15 +26,11 @@ export function App() {
       {/*  <CheckboxComponent checked={checked} setChecked={setChecked} />*/}
       {/*</div>*/}
       <div style={{ marginLeft: '10px', marginTop: '10px' }}>
-        <Input disabled label={'input label'} variant={'password'} />
+        <Input error={'Some Error !'} label={'active input label'} variant={'password'} />
         <br />
-        <Input label={'active input label'} variant={'password'} />
+        <Input error={'Some Error !'} label={'active input label'} variant={'search'} />
         <br />
-        <Input label={'active input label'} variant={'search'} />
-        <br />
-        <Input disabled label={'active input label'} variant={'search'} />
-        <br />
-        <Input label={'active input label'} />
+        <Input error={'Some Error !'} label={'active input label'} />
       </div>
     </>
   )

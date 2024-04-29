@@ -6,6 +6,7 @@ import s from './Input.module.scss'
 
 type Props = {
   disabled?: boolean
+  error?: string
   inputInitialValue?: string
   label?: string
   variant?: 'password' | 'search' | 'text'
@@ -13,6 +14,7 @@ type Props = {
 
 export const Input = ({
   disabled = false,
+  error = '',
   inputInitialValue = '',
   label,
   variant = 'text',
@@ -27,7 +29,7 @@ export const Input = ({
         <input
           className={`${s.input} ${variant === 'password' && s.inputPassword} ${
             variant === 'search' && s.inputSearch
-          }`}
+          }  ${error && s.inputError}`}
           disabled={disabled}
           onInput={e => setInputValue(e.currentTarget.value)}
           type={variant === 'password' && !passVisible ? 'password' : 'text'}
@@ -48,6 +50,7 @@ export const Input = ({
               onClick={() => !disabled && setPassVisible(true)}
             />
           ))}
+        {error && <span className={`${s.error}`}>{error}</span>}
       </div>
     </>
   )
