@@ -18,7 +18,9 @@ button {
   border-radius: 2px;
 
   &:hover {
-    box-shadow: var(--CheckboxRoot-shadow) var(--color-dark-500);
+    box-shadow: var(--CheckboxRoot-shadow) var(--color-light-900);
+
+    //box-shadow: var(--CheckboxRoot-shadow) var(--color-dark-500);
   }
 
   //&:hover::after {
@@ -35,7 +37,7 @@ button {
   //}
 
   &:active {
-    box-shadow: var(--CheckboxRoot-shadow) var(--color-dark-100);
+    box-shadow: var(--CheckboxRoot-shadow) var(--color-light-100);
   }
 
   //&:active::after {

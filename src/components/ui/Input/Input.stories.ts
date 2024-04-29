@@ -1,69 +1,74 @@
-// import type { Meta, StoryObj } from '@storybook/react'
-//
-// import { Button } from './'
-//
-// const meta = {
-//   argTypes: {
-//     variant: {
-//       control: { type: 'radio' },
-//       options: ['primary', 'secondary'],
-//     },
-//   },
-//   component: Button,
-//   tags: ['autodocs'],
-//   title: 'Components/Button',
-// } satisfies Meta<typeof Button>
-//
-// export default meta
-// type Story = StoryObj<typeof meta>
-//
-// export const Primary: Story = {
-//   args: {
-//     children: 'Primary Button',
-//     disabled: false,
-//     variant: 'primary',
-//   },
-// }
-//
-// export const PrimaryDisabled: Story = {
-//   args: {
-//     children: 'Primary Button',
-//     disabled: true,
-//     variant: 'primary',
-//   },
-// }
-//
-// export const Secondary: Story = {
-//   args: {
-//     children: 'Secondary Button',
-//     disabled: false,
-//     variant: 'secondary',
-//   },
-// }
-//
-// export const SecondaryDisabled: Story = {
-//   args: {
-//     children: 'Secondary Button',
-//     disabled: true,
-//     variant: 'secondary',
-//   },
-// }
-//
-// export const PrimaryFullWidth: Story = {
-//   args: {
-//     children: 'Full Width Primary Button',
-//     disabled: false,
-//     fullWidth: true,
-//     variant: 'primary',
-//   },
-// }
-//
-// export const LinkAsPrimaryButton: Story = {
-//   args: {
-//     as: 'a',
-//     children: 'Link that looks like a button',
-//     disabled: false,
-//     variant: 'primary',
-//   },
-// }
-export default {}
+import type { Meta, StoryObj } from '@storybook/react'
+
+import { Input } from './'
+
+const meta = {
+  argTypes: {
+    disabled: {
+      control: { type: 'boolean' },
+    },
+    variant: {
+      control: { type: 'inline-radio' },
+      options: ['text', 'search', 'password'],
+    },
+  },
+  component: Input,
+  tags: ['autodocs'],
+  title: 'Components/Input',
+} satisfies Meta<typeof Input>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const InputText: Story = {
+  args: {
+    disabled: false,
+    inputInitialValue: 'Some Text',
+    label: 'Some Input',
+    variant: 'text',
+  },
+}
+
+export const InputTextDisabled: Story = {
+  args: {
+    disabled: true,
+    inputInitialValue: 'Some Text',
+    label: 'Some Input',
+    variant: 'text',
+  },
+}
+export const InputSearch: Story = {
+  args: {
+    disabled: false,
+    inputInitialValue: 'Some Search Text',
+    label: 'Some Search Input',
+    variant: 'search',
+  },
+}
+
+export const InputSearchDisabled: Story = {
+  args: {
+    disabled: true,
+    inputInitialValue: 'Some Search Text',
+    label: 'Some Search Input',
+    variant: 'search',
+  },
+}
+
+export const InputPassword: Story = {
+  args: {
+    disabled: false,
+    inputInitialValue: 'Some Password',
+    label: 'Some Password Input',
+    variant: 'password',
+  },
+}
+
+export const InputPasswordDisabled: Story = {
+  args: {
+    disabled: true,
+    inputInitialValue: 'Some Password',
+    label: 'Some Password Input',
+    variant: 'password',
+  },
+}
