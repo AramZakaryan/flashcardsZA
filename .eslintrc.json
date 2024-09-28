@@ -1,0 +1,16 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    // You can customize your rules here
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+      // Automatically detect the react version
+    }
+  }
+}
