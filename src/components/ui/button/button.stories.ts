@@ -8,6 +8,17 @@ const meta = {
       control: { type: 'radio' },
       options: ['primary', 'secondary'],
     },
+    as: {
+      control: { type: 'radio' },
+      options: ['button', 'a'],
+    },
+    fullWidth: {
+      control: { type: 'boolean' },
+    },
+  },
+  args: {
+    as: 'button', // Set default value here
+    fullWidth: false, // Default value for fullWidth
   },
   component: Button,
   tags: ['autodocs'],
@@ -33,10 +44,36 @@ export const PrimaryDisabled: Story = {
   },
 }
 
+export const PrimaryFullWidth: Story = {
+  args: {
+    children: 'Full Width Primary Button',
+    disabled: false,
+    fullWidth: true,
+    variant: 'primary',
+  },
+}
+
+export const PrimaryLinkLikeButton: Story = {
+  args: {
+    as: 'a',
+    children: 'Primary Link that looks like a button',
+    variant: 'primary',
+    href: '#',
+  },
+}
+
+export const PrimaryLinkLikeButtonDisabled: Story = {
+  args: {
+    as: 'a',
+    children: 'Primary Link that looks like a button',
+    disabled: true,
+    variant: 'primary',
+  },
+}
+
 export const Secondary: Story = {
   args: {
     children: 'Secondary Button',
-    disabled: false,
     variant: 'secondary',
   },
 }
@@ -49,20 +86,29 @@ export const SecondaryDisabled: Story = {
   },
 }
 
-export const PrimaryFullWidth: Story = {
+export const SecondaryFullWidth: Story = {
   args: {
-    children: 'Full Width Primary Button',
+    children: 'Full Width Secondary Button',
     disabled: false,
     fullWidth: true,
-    variant: 'primary',
+    variant: 'secondary',
   },
 }
 
-export const LinkAsPrimaryButton: Story = {
+export const SecondaryLinkLikeButton: Story = {
   args: {
     as: 'a',
-    children: 'Link that looks like a button',
-    disabled: false,
-    variant: 'primary',
+    children: 'Secondary Link that looks like a button',
+    variant: 'secondary',
+    href: '#',
+  },
+}
+
+export const SecondaryLinkLikeButtonDisabled: Story = {
+  args: {
+    as: 'a',
+    children: 'Secondary Link that looks like a button',
+    disabled: true,
+    variant: 'secondary',
   },
 }

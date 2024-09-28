@@ -44,14 +44,15 @@
   // dark
   --color-dark-checkbox-disables: #d9d7d8;
   --color-dark-100: #808080;
+  --color-dark-200: #6d6d6d;
   --color-dark-300: #4c4c4c;
   --color-dark-500: #333;
   --color-dark-700: #171717;
   --color-dark-900: #000;
 
   // shadow
-  --color-button-accent-shadow: #8c61ff59;
-  --color-button-dark-shadow: #4c4c4c21;
+  --color-button-accent-shadow: #8c61ff59; // 35% opacity of --color-accent-500: #8c61ff
+  --color-button-dark-shadow: #6d6d6d40; // 25% opacity of --color-dark-200
   --color-card-shadow: #0000001a;
 
   // border
