@@ -1,6 +1,7 @@
 import { MouseEvent, ComponentPropsWithoutRef, ElementType } from 'react'
 
 import s from './button.module.scss'
+import clsx from 'clsx'
 
 export type ButtonProps<T extends ElementType> = {
   as?: T
@@ -32,11 +33,15 @@ export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) 
 
   return (
     <Component
-      className={`${s.button} ${s[variant]} ${fullWidth ? s.fullWidth : ''} ${
-        Component === 'a' && disabled ? s.disabledLink : ''
-      } ${className || ''}`}
+      className={clsx(
+        className,
+        s.button,
+        s[variant],
+        fullWidth && s.fullWidth,
+        Component === 'a' && disabled && s.disabledLink
+      )}
       disabled={Component !== 'a' && disabled}
-      onClick={disabled ? handleDisabledClick : onClick}
+      onClick={Component !== 'a' && disabled ? handleDisabledClick : onClick}
       {...rest}
     />
   )
