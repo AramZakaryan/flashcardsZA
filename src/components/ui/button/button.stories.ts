@@ -38,7 +38,7 @@ export const Primary: Story = {
 
 export const PrimaryDisabled: Story = {
   args: {
-    children: 'Primary Button',
+    children: 'Primary Button Disables',
     disabled: true,
     variant: 'primary',
   },
@@ -65,7 +65,7 @@ export const PrimaryLinkLikeButton: Story = {
 export const PrimaryLinkLikeButtonDisabled: Story = {
   args: {
     as: 'a',
-    children: 'Primary Link that looks like a button',
+    children: 'Primary Link Disabled that looks like a button',
     disabled: true,
     variant: 'primary',
   },
@@ -107,7 +107,7 @@ export const SecondaryLinkLikeButton: Story = {
 export const SecondaryLinkLikeButtonDisabled: Story = {
   args: {
     as: 'a',
-    children: 'Secondary Link that looks like a button',
+    children: 'Secondary Link Disabled that looks like a button',
     disabled: true,
     variant: 'secondary',
   },

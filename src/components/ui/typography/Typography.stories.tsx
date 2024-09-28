@@ -32,7 +32,7 @@ export default {
 const locationText = 'Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH'
 
 export const Typography = () => (
-  <div style={{ display: 'flex', flexDirection: 'column' }}>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
     <H1>{`H1: ${locationText}`}</H1>
     <H2>{`H2: ${locationText}`}</H2>
     <H3>{`H3: ${locationText}`}</H3>
@@ -47,7 +47,6 @@ export const Typography = () => (
       href={'#'}
       target={'_blank'}
       rel={'noopener noreferrer'}
-      style={{ marginBottom: '10px' }}
     >{`Link1: ${locationText}`}</Link1>
     <Link2
       href={'#'}
