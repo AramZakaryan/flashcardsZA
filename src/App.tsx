@@ -1,15 +1,16 @@
-import { Card } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 
 export function App() {
   return (
     <>
       <div>Hello</div>
-      <Card title="Card Title">
-        <div style={{ width: '100%', height: '100px', background: 'yellow' }}></div>
-        <Button variant={'primary'}>some button</Button>
-      </Card>
-      <div></div>
+
+      <div style={{ marginLeft: '20px', marginTop: '20px' }}>
+        <Checkbox label={'some checkbox'} />
+      </div>
+      <div style={{ marginLeft: '20px', marginTop: '20px' }}>
+        <Checkbox label={'some checkbox'} disabled />
+      </div>
     </>
   )
 }
