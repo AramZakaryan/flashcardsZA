@@ -23,35 +23,41 @@ type Story = StoryObj<typeof meta>
 export const InputText: Story = {
   args: {
     disabled: false,
-    inputInitialValue: 'Some Text',
-    label: 'Some Input',
+    label: 'Input',
+    placeholder: 'Input',
+    initialValue: 'Input',
     variant: 'text',
   },
 }
 
-export const InputSearch: Story = {
+export const InputTextError: Story = {
   args: {
     disabled: false,
-    inputInitialValue: 'Some Search Text',
-    label: 'Some Search Input',
-    variant: 'search',
+    label: 'Input',
+    placeholder: 'Input',
+    variant: 'text',
+    initialValue: 'Input',
+    error: true,
+    errorMessage: 'Error!',
+  },
+}
+
+export const InputTextDisabled: Story = {
+  args: {
+    disabled: true,
+    label: 'Input',
+    placeholder: 'Input',
+    variant: 'text',
+    initialValue: 'Input',
   },
 }
 
 export const InputPassword: Story = {
   args: {
     disabled: false,
-    inputInitialValue: 'Some Password',
-    label: 'Some Password Input',
-    variant: 'password',
-  },
-}
-
-export const InputPasswordDisabled: Story = {
-  args: {
-    disabled: true,
-    inputInitialValue: 'Some Password',
-    label: 'Some Password Input',
+    label: 'Input',
+    placeholder: 'Input',
+    initialValue: 'Input',
     variant: 'password',
   },
 }
@@ -59,9 +65,53 @@ export const InputPasswordDisabled: Story = {
 export const InputPasswordError: Story = {
   args: {
     disabled: false,
-    error: 'Some Error',
-    inputInitialValue: 'Some Password',
-    label: 'Some Password Input',
+    label: 'Input',
+    placeholder: 'Input',
     variant: 'password',
+    initialValue: 'Input',
+    error: true,
+    errorMessage: 'Error!',
+  },
+}
+
+export const InputPasswordDisabled: Story = {
+  args: {
+    disabled: true,
+    label: 'Input',
+    placeholder: 'Input',
+    variant: 'password',
+    initialValue: 'Input',
+  },
+}
+
+export const InputSearch: Story = {
+  args: {
+    disabled: false,
+    label: 'Input',
+    placeholder: 'Input',
+    initialValue: 'Input',
+    variant: 'search',
+  },
+}
+
+export const InputSearchError: Story = {
+  args: {
+    disabled: false,
+    label: 'Input',
+    placeholder: 'Input',
+    variant: 'search',
+    initialValue: 'Input',
+    error: true,
+    errorMessage: 'Error!',
+  },
+}
+
+export const InputSearchDisabled: Story = {
+  args: {
+    disabled: true,
+    label: 'Input',
+    placeholder: 'Input',
+    variant: 'search',
+    initialValue: 'Input',
   },
 }
