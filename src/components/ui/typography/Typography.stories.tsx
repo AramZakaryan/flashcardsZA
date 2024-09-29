@@ -1,15 +1,3 @@
-// const meta = {
-//   component: Typography,
-//   title: 'Components/Typography',
-//   tags: ['autodocs'],
-// } satisfies Meta<typeof Typography>
-//
-// export default meta
-//
-// type Story = StoryObj<typeof meta>
-//
-// import * as icons from './iconComponents'
-
 import {
   H1,
   H2,
@@ -55,16 +43,3 @@ export const Typography = () => (
     >{`Link2: ${locationText}`}</Link2>
   </div>
 )
-
-//
-// export const small_link: Story = {
-//   args: {
-//     asChild: true,
-//     children: (
-//       <a href={'#'} target={'_blank'} rel={'noopener noreferrer'}>
-//         {`go to google.com - Typography ${TypographyVariant.small_link} as a (default)`}
-//       </a>
-//     ),
-//     variant: TypographyVariant.small_link,
-//   },
-// }

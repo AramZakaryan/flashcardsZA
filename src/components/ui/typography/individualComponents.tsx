@@ -1,18 +1,18 @@
 // Generate individual components based on TypographyVariants keys
 
-import { ComponentPropsWithoutRef, ElementType, FC } from 'react'
-import { Typography, TypographyVariants } from '@/components/ui/typography/Typography'
+import {
+  Typography,
+  TypographyProps,
+  TypographyVariants,
+} from '@/components/ui/typography/Typography'
 
 const createTypographyComponents = () => {
-  const components: Record<string, FC<ComponentPropsWithoutRef<ElementType>>> = {}
+  const components: Record<string, typeof Typography> = {}
 
   Object.keys(TypographyVariants).forEach((variant) => {
-    components[variant] = (props: ComponentPropsWithoutRef<ElementType>) => (
-      <Typography
-        as={TypographyVariants[variant as keyof typeof TypographyVariants]}
-        variant={variant as keyof typeof TypographyVariants}
-        {...props}
-      />
+    const tag = TypographyVariants[variant as keyof typeof TypographyVariants]
+    components[variant] = (props: TypographyProps<typeof tag>) => (
+      <Typography as={tag} variant={variant as keyof typeof TypographyVariants} {...props} />
     )
   })
 

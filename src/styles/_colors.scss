@@ -47,14 +47,12 @@
   --color-dark-200: #6d6d6d;
   --color-dark-300: #4c4c4c;
   --color-dark-500: #333;
+  --color-dark-600: #313131;
   --color-dark-700: #171717;
   --color-dark-900: #000;
 
   // shadow
   --color-button-accent-shadow: #8c61ff59; // 35% opacity of --color-accent-500: #8c61ff
   --color-button-dark-shadow: #6d6d6d40; // 25% opacity of --color-dark-200
-  --color-card-shadow: #0000001a;
-
-  // border
-  --color-border: #313131;
+  --color-card-shadow: #0000001a; // 25% opacity of --color-dark-900
 }

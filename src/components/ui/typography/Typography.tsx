@@ -17,7 +17,7 @@ export const TypographyVariants = {
   link2: 'a',
 } as const
 
-type TypographyProps<T extends ElementType> = {
+export type TypographyProps<T extends ElementType> = {
   as?: T
   variant?: keyof typeof TypographyVariants
   className?: string
