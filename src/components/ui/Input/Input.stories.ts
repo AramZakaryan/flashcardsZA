@@ -11,6 +11,13 @@ const meta = {
       control: { type: 'inline-radio' },
       options: ['text', 'search', 'password'],
     },
+    error: {
+      control: { type: 'boolean' },
+    },
+  },
+  args: {
+    error: false, // Set default value here
+    errorMessage: 'Error!',
   },
   component: Input,
   tags: ['autodocs'],
