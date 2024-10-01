@@ -1,4 +1,8 @@
-// This is NOT the SelectLabel which is used to render the label of a group
+button {
+  all: unset;
+}
+
+/** This is label above the Select. This is NOT the Radix SelectLabel which is used to render the label of a group */
 .label {
   font: var(--font-body-2);
   color: var(--color-dark-100);
@@ -11,7 +15,6 @@
 
 .selectTrigger {
   display: flex;
-  height: 24px;
   width: 210px;
   align-items: center;
   justify-content: space-between;
@@ -28,15 +31,23 @@
   &:hover:not([disabled]) {
     background-color: var(--color-dark-500);
     border-color: var(--color-dark-100);
+
+    &.compact {
+      border-color: var(--color-dark-300);
+    }
   }
 
-  &:focus {
+  &:focus:not(.compact) {
     border-color: var(--color-accent-500);
     outline: 1px solid var(--color-accent-500);
   }
 
-  &:active,
   &[data-state='open'] {
+    &:not(.compact) {
+      border-color: var(--color-dark-100);
+    }
+  }
+  &:active {
     border-color: var(--color-dark-100);
   }
 
@@ -45,6 +56,20 @@
     border-color: var(--color-dark-300);
     color: var(--color-dark-300);
   }
+
+  &.compact {
+    background-color: var(--color-dark-700);
+    border-color: var(--color-dark-500);
+    width: 40px;
+    font: var(--font-body-2);
+    padding: 0 3px 0 5px;
+  }
+}
+
+.selectIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .selectContent {
@@ -56,12 +81,11 @@
   border: 1px solid var(--color-dark-100);
   border-top: none;
   font: var(--font-body-2);
-}
 
-.selectLabel {
-  padding: 0.375rem 0.5rem; /* Tailwind py-1.5 pl-8 pr-2 */
-  font-size: 0.875rem; /* Tailwind text-sm */
-  font-weight: 600; /* Tailwind font-semibold */
+  &.compact {
+    border-color: var(--color-dark-500);
+    background-color: var(--color-dark-700);
+  }
 }
 
 .selectItem {
@@ -77,5 +101,10 @@
   &:hover {
     background-color: var(--color-accent-900);
     color: var(--color-accent-300);
+  }
+
+  &.compact {
+    font: var(--font-body-2);
+    padding: 0 3px 0 5px;
   }
 }
