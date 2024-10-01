@@ -4,20 +4,18 @@ export function App() {
   return (
     <>
       <div>Hello</div>
-
-      <Select>
-        <SelectTrigger>
-          <SelectValue placeholder="Select a verified email to display" />
-        </SelectTrigger>
-        {/* eslint-disable-next-line react/jsx-no-undef */}
-        <SelectContent>
-          {[...Array(10)].map((_, i) => (
-            <SelectItem key={i} value={`val${i}`}>
-              Select-box
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+      <div style={{ paddingInline: '10px' }}>
+        <Select label={'label'} defaultValue={'val1'}>
+          <SelectTrigger>
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value={`val1`}>Select-box-1</SelectItem>
+            <SelectItem value={`val2`}>Select-box-2</SelectItem>
+            <SelectItem value={`val3`}>Select-box-3</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
     </>
   )
 }

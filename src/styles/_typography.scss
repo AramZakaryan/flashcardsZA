@@ -19,4 +19,8 @@
   --font-weight-bold: 700;
 
   // fonts
+  --font-body-1: normal normal var(--font-weight-regular) normal var(--font-size-m-16) /
+    var(--line-height-m-24) var(--font-family-primary);
+  --font-body-2: normal normal var(--font-weight-regular) normal var(--font-size-s-14) /
+    var(--line-height-m-24) var(--font-family-primary);
 }
