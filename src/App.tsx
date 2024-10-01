@@ -1,16 +1,23 @@
-import { Slider } from './components/ui/slider/Slider'
-import { useState } from 'react'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui'
 
 export function App() {
-  const [value, setValue] = useState<number[]>([2, 10])
-
   return (
     <>
       <div>Hello</div>
 
-      <div>
-        <Slider min={0} max={13} step={1} value={value} onValueChange={setValue} />
-      </div>
+      <Select>
+        <SelectTrigger>
+          <SelectValue placeholder="Select a verified email to display" />
+        </SelectTrigger>
+        {/* eslint-disable-next-line react/jsx-no-undef */}
+        <SelectContent>
+          {[...Array(10)].map((_, i) => (
+            <SelectItem key={i} value={`val${i}`}>
+              Select-box
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </>
   )
 }

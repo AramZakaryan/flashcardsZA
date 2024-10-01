@@ -1,6 +1,5 @@
 import type { SVGProps } from 'react'
 import { Ref, forwardRef } from 'react'
-
 const SvgClose = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" ref={ref} {...props}>
     <g clipPath="url(#close_svg__a)">
