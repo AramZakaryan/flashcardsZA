@@ -55,7 +55,7 @@ export const Pagination = ({
 
           const handleChangePage = () => {
             if (page !== '…') {
-              onChangePage(page as number)
+              onChangePage(page)
             }
           }
 

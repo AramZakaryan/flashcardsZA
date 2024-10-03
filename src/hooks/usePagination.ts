@@ -6,7 +6,11 @@ type UsePaginationParams = {
   totalCount: number
 }
 
-export const usePagination = ({ currentPage, pageSize, totalCount }: UsePaginationParams) => {
+export const usePagination = ({
+  currentPage,
+  pageSize,
+  totalCount,
+}: UsePaginationParams): Array<number | '…'> => {
   return useMemo(() => {
     const totalPageCount = Math.ceil(totalCount / pageSize)
 
