@@ -7,7 +7,7 @@ import { ComponentPropsWithoutRef } from 'react'
 export type SelectProps = {
   isCompact?: boolean
   label?: string
-  options?: {
+  options: {
     value: string
     text: string
   }[]
