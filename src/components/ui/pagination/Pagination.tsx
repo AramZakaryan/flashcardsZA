@@ -45,39 +45,44 @@ export const Pagination = ({
   const isLastPage = currentPage === paginationRange[paginationRange.length - 1]
 
   return (
-    <div className={clsx(s.container)}>
-      <div className={s.pagination}>
-        <button className={s.item} disabled={isFirstPage} onClick={handleClickBack}>
+    <div className={clsx(s.rootContainer)}>
+      <div className={s.paginationContainer}>
+        <button className={clsx(s.item, s.arrow)} disabled={isFirstPage} onClick={handleClickBack}>
           <ArrowIosBack width={16} />
         </button>
+
         {paginationRange.map((page, i) => {
           const isCurrentPage = page === currentPage
-
           const handleChangePage = () => {
             if (page !== '…') {
               onChangePage(page)
             }
           }
-
           return (
             <button
               key={i}
-              className={clsx(s.item, { [s.selected]: isCurrentPage })}
+              className={clsx(s.item, { [s.dots]: page === '…' }, { [s.selected]: isCurrentPage })}
               onClick={handleChangePage}
             >
               <Body2>{page}</Body2>
             </button>
           )
         })}
-        <button className={s.item} disabled={isLastPage} onClick={handleClickForward}>
+
+        <button
+          className={clsx(s.item, s.arrow)}
+          disabled={isLastPage}
+          onClick={handleClickForward}
+        >
           <ArrowIosForward width={16} />
         </button>
       </div>
+
       {selectOptions && setPageSize && (
         <Body2 className={s.selectContainer}>
-          {'show'}
+          show
           <Select isCompact onValueChange={handleSelectValueChange} options={selectOptions} />
-          {'on page'}
+          on page
         </Body2>
       )}
     </div>

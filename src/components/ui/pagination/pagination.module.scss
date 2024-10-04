@@ -1,11 +1,10 @@
-.container {
+.rootContainer {
   display: flex;
-  gap: 12px;
+  gap: 24px;
   align-items: center;
-  margin: 5px;
 }
 
-.pagination {
+.paginationContainer {
   display: flex;
   gap: 12px;
   align-items: center;
@@ -18,8 +17,6 @@
     cursor: pointer;
     user-select: none;
 
-    padding: 0 8px;
-
     background-color: transparent;
     border: none;
     border-radius: 2px;
@@ -27,33 +24,44 @@
 
     transition: 0.2s ease-in-out;
 
-    &.dots:hover {
+    padding: 0 8px;
+
+    &.arrow {
+      padding: 0;
+      width: 24px;
+      height: 24px;
+
+      &:disabled {
+        color: var(--color-dark-100);
+
+        &:hover {
+          cursor: default;
+          background-color: inherit;
+        }
+      }
+    }
+
+    &.dots {
       cursor: default;
-      color: var(--color-light-100);
-      background-color: transparent;
+
+      &:hover {
+        background-color: inherit;
+      }
     }
 
     &:hover {
       background-color: var(--color-dark-500);
     }
 
-    &:focus-visible {
+    &:focus {
       outline: 2px solid var(--color-info-900);
+      background-color: inherit;
     }
 
     &.selected {
       cursor: pointer;
       color: var(--color-dark-900);
       background-color: var(--color-light-100);
-    }
-
-    &:disabled {
-      pointer-events: none;
-
-      &:hover {
-        cursor: default;
-        background-color: transparent;
-      }
     }
   }
 }
@@ -65,13 +73,13 @@
   justify-content: center;
 }
 
-@media screen and (width <= 640px) {
-  .container {
-    flex-direction: column-reverse;
-    justify-content: center;
-  }
-
-  .pagination {
-    gap: 3px;
-  }
-}
+//@media screen and (width <= 640px) {
+//  .container {
+//    flex-direction: column-reverse;
+//    justify-content: center;
+//  }
+//
+//  .pagination {
+//    gap: 3px;
+//  }
+//}
