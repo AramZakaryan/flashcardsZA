@@ -1,4 +1,4 @@
-import { Table, TBody, Td, Th, THead, Tr } from '@/components/ui/table/table'
+import { Table, TBody, Td, Th, THead, Tr } from '@/components/ui/table/Table'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
