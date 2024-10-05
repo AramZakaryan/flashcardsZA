@@ -1,0 +1,198 @@
+@use 'sass:math';
+
+$sqrt-2: math.sqrt(2);
+
+button {
+  all: unset;
+}
+
+.DropdownMenuContent,
+.DropdownMenuSubContent {
+  min-width: 217px;
+  background-color: var(--color-dark-700);
+  border-radius: 4px;
+  border: 1px solid var(--color-dark-500);
+  padding: 10px;
+}
+
+.DropdownMenuContent[data-side='top'],
+.DropdownMenuSubContent[data-side='top'] {
+  animation-name: slideDownAndFade;
+}
+
+.DropdownMenuContent[data-side='right'],
+.DropdownMenuSubContent[data-side='right'] {
+  animation-name: slideLeftAndFade;
+}
+
+.DropdownMenuContent[data-side='bottom'],
+.DropdownMenuSubContent[data-side='bottom'] {
+  animation-name: slideUpAndFade;
+}
+
+.DropdownMenuContent[data-side='left'],
+.DropdownMenuSubContent[data-side='left'] {
+  animation-name: slideRightAndFade;
+}
+
+.DropdownMenuItem,
+.DropdownMenuCheckboxItem,
+.DropdownMenuRadioItem,
+.DropdownMenuSubTrigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 2px;
+  position: relative;
+  user-select: none;
+  outline: none;
+}
+
+.DropdownMenuSubTrigger[data-state='open'] {
+  background-color: var(--violet-4);
+  color: yellow;
+}
+
+.DropdownMenuItem[data-disabled],
+.DropdownMenuCheckboxItem[data-disabled],
+.DropdownMenuRadioItem[data-disabled],
+.DropdownMenuSubTrigger[data-disabled] {
+  color: yellow;
+  pointer-events: none;
+}
+
+.DropdownMenuItem[data-highlighted],
+.DropdownMenuCheckboxItem[data-highlighted],
+.DropdownMenuRadioItem[data-highlighted],
+.DropdownMenuSubTrigger[data-highlighted] {
+  background-color: blue;
+  color: var(--violet-1);
+}
+
+.DropdownMenuLabel {
+  padding-left: 25px;
+  font-size: 12px;
+  line-height: 25px;
+  color: yellow;
+}
+
+.DropdownMenuSeparator {
+  height: 1px;
+  background-color: var(--color-dark-500);
+}
+
+.DropdownMenuItemIndicator {
+  position: absolute;
+  left: 0;
+  width: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.DropdownMenuArrow {
+  width: 16px;
+  height: 8px;
+  fill: var(--color-dark-700);
+  stroke: var(--color-dark-500);
+  stroke-width: 1.4px;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  background-color: var(--color-dark-700);
+  transform: rotate(45deg) translateY(-11.8px);
+  border-right: 1px solid var(--color-dark-500);
+  border-bottom: 1px solid var(--color-dark-500);
+}
+
+.IconButton {
+  font-family: inherit;
+  border-radius: 100%;
+  height: 35px;
+  width: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: yellowgreen;
+  background-color: white;
+}
+
+.IconButton:hover {
+  background-color: violet;
+}
+
+.IconButton:focus {
+  box-shadow: 0 0 0 2px black;
+}
+
+.IconImage {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.RightSlot {
+  &.userInfo {
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+
+    .email {
+      color: var(--color-dark-100);
+    }
+  }
+}
+
+[data-highlighted] > .RightSlot {
+  color: white;
+}
+
+[data-disabled] .RightSlot {
+  color: grey;
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
