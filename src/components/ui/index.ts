@@ -1,6 +1,7 @@
 export * from './button'
 export * from './card'
 export * from './checkbox'
+export * from './dropdown'
 export * from './icons'
 export * from './input'
 export * from './pagination'
