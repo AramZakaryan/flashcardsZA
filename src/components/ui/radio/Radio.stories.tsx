@@ -3,7 +3,10 @@ import { Radio } from '@/components/ui/radio/Radio'
 
 const meta = {
   component: Radio,
-  parameters: {},
+  argTypes: {
+    disabled: { control: 'boolean' },
+    onValueChange: { action: 'onValueChange' },
+  },
   tags: ['autodocs'],
   title: 'Components/Radio',
 } satisfies Meta<typeof Radio>
@@ -13,7 +16,8 @@ type Story = StoryObj<typeof meta>
 
 export const RadioDefault: Story = {
   args: {
-    defaultValue: 'value2',
+    disabled: false,
+    defaultValue: 'value1',
     items: [
       {
         id: '111',
@@ -32,12 +36,11 @@ export const RadioDefault: Story = {
       },
     ],
   },
+}
 
-  render: (args) => {
-    return (
-      <div style={{ marginLeft: '100px' }}>
-        <Radio {...args} />
-      </div>
-    )
+export const RadioDisables: Story = {
+  args: {
+    ...RadioDefault.args,
+    disabled: true,
   },
 }

@@ -3,14 +3,19 @@ import s from './radio.module.scss'
 import { Body2 } from '@/components'
 import { ComponentPropsWithoutRef } from 'react'
 import { useFinalId } from '@/hooks/useFinalId'
+import { clsx } from 'clsx'
 
 export type RadioProps = {
   items: RadioItem[]
 } & ComponentPropsWithoutRef<typeof RadioGroup.Root>
 
-export const Radio = ({ items, ...restProps }: RadioProps) => {
+export const Radio = ({ items, disabled, ...restProps }: RadioProps) => {
   return (
-    <RadioGroup.Root className={s.RadioGroupRoot} {...restProps}>
+    <RadioGroup.Root
+      className={clsx(s.RadioGroupRoot, { [s.disabled]: disabled })}
+      disabled={disabled}
+      {...restProps}
+    >
       {items.map((option, i) => (
         <RadioItem key={i} {...option} />
       ))}
