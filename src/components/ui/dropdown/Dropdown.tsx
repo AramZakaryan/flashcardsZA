@@ -1,49 +1,52 @@
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import ivanImage from '@/assets/image/ivan.png'
 import s from './dropdown.module.scss'
 import { Caption, LogOutOutline, PersonOutline, Subtitle2 } from '@/components'
 import { clsx } from 'clsx'
 
-const DropdownMenuDemo = () => {
+/** ZA: this component is initial, it will receive some functionality
+ * * and/or some params during the development
+ */
+const DropdownMenu = () => {
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild>
+    <DropdownMenuPrimitive.Root>
+      <DropdownMenuPrimitive.Trigger asChild>
         <button className={s.IconButton} aria-label="Customise options">
           <img src={ivanImage} className={s.IconImage} alt={'ivan image'} />
         </button>
-      </DropdownMenu.Trigger>
+      </DropdownMenuPrimitive.Trigger>
 
-      <DropdownMenu.Portal>
-        <DropdownMenu.Content className={s.DropdownMenuContent} sideOffset={5}>
-          <DropdownMenu.Arrow asChild className={s.DropdownMenuArrow}>
+      <DropdownMenuPrimitive.Portal>
+        <DropdownMenuPrimitive.Content className={s.DropdownMenuContent} sideOffset={5}>
+          <DropdownMenuPrimitive.Arrow asChild className={s.DropdownMenuArrow}>
             <div className={s.arrow} />
-          </DropdownMenu.Arrow>
+          </DropdownMenuPrimitive.Arrow>
 
-          <DropdownMenu.Item className={s.DropdownMenuItem}>
+          <DropdownMenuPrimitive.Item className={s.DropdownMenuItem}>
             <img src={ivanImage} className={s.IconImage} alt={'ivan image'} />
             <div className={clsx(s.RightSlot, s.userInfo)}>
               <Subtitle2>Ivan</Subtitle2>
               <Caption className={s.email}>j&johnson@gmail.com</Caption>
             </div>
-          </DropdownMenu.Item>
+          </DropdownMenuPrimitive.Item>
 
-          <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
+          <DropdownMenuPrimitive.Separator className={s.DropdownMenuSeparator} />
 
-          <DropdownMenu.Item className={s.DropdownMenuItem}>
+          <DropdownMenuPrimitive.Item className={s.DropdownMenuItem}>
             <PersonOutline width={16} />
             <Caption className={s.email}>My Profile</Caption>
-          </DropdownMenu.Item>
+          </DropdownMenuPrimitive.Item>
 
-          <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
+          <DropdownMenuPrimitive.Separator className={s.DropdownMenuSeparator} />
 
-          <DropdownMenu.Item className={s.DropdownMenuItem}>
+          <DropdownMenuPrimitive.Item className={s.DropdownMenuItem}>
             <LogOutOutline width={16} />
             <Caption className={s.email}>Sign Out</Caption>
-          </DropdownMenu.Item>
-        </DropdownMenu.Content>
-      </DropdownMenu.Portal>
-    </DropdownMenu.Root>
+          </DropdownMenuPrimitive.Item>
+        </DropdownMenuPrimitive.Content>
+      </DropdownMenuPrimitive.Portal>
+    </DropdownMenuPrimitive.Root>
   )
 }
 
-export default DropdownMenuDemo
+export default DropdownMenu
