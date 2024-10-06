@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 import Dropdown from '@/components/ui/dropdown/Dropdown'
-import DropdownMenu from '@/components/ui/dropdown/Dropdown'
 
 const meta = {
   component: Dropdown,
@@ -15,7 +14,7 @@ type Story = StoryObj<typeof meta>
 export const DropDownMenuDefault: Story = {
   render: () => (
     <div style={{ marginLeft: '100px' }}>
-      <DropdownMenu />
+      <Dropdown />
     </div>
   ),
 }

@@ -7,7 +7,7 @@ import { clsx } from 'clsx'
 /** ZA: this component is initial, it will receive some functionality
  * * and/or some params during the development
  */
-const DropdownMenu = () => {
+const Dropdown = () => {
   return (
     <DropdownMenuPrimitive.Root>
       <DropdownMenuPrimitive.Trigger asChild>
@@ -49,4 +49,4 @@ const DropdownMenu = () => {
   )
 }
 
-export default DropdownMenu
+export default Dropdown

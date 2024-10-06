@@ -20,16 +20,6 @@ button {
   outline: none;
 }
 
-.DropdownMenuItem[data-disabled] {
-  color: yellow;
-  pointer-events: none;
-}
-
-.DropdownMenuItem[data-highlighted] {
-  background-color: blue;
-  color: var(--violet-1);
-}
-
 .DropdownMenuSeparator {
   height: 1px;
   background-color: var(--color-dark-500);
