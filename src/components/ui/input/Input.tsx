@@ -1,7 +1,7 @@
 import { ChangeEvent, ComponentPropsWithoutRef, ReactElement, useState } from 'react'
 import { Close, EyeOffOutline, EyeOutline, Search } from '../icons'
 import s from './input.module.scss'
-import { Body2, Caption } from '@/components/ui/typography'
+import { Body2span, Caption } from '@/components/ui/typography'
 import { clsx } from 'clsx'
 import { Nullable } from '@/types/nullable.type'
 
@@ -67,7 +67,7 @@ export const Input = ({
     <div className={clsx(className, s.rootContainer)}>
       {label && (
         <label className={clsx(s.label, disabled && s.disabled)}>
-          <Body2>{label}</Body2>
+          <Body2span>{label}</Body2span>
         </label>
       )}
       <div className={s.fieldContainer}>
