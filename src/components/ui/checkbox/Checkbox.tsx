@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react'
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import s from './checkbox.module.scss'
-import { Body2 } from '../typography'
+import { Body2span } from '../typography'
 import clsx from 'clsx'
 import { useFinalId } from '@/hooks/useFinalId'
 import { CheckIcon } from '@radix-ui/react-icons'
@@ -41,7 +41,7 @@ export const Checkbox = ({
         </CheckboxRadix.Indicator>
       </CheckboxRadix.Root>
       <Label.Root className={clsx(className, s.Label, disabled && s.disabled)} htmlFor={finalId}>
-        <Body2>{label}</Body2>
+        <Body2span>{label}</Body2span>
       </Label.Root>
     </div>
   )
