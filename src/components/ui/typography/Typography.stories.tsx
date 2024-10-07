@@ -5,9 +5,13 @@ import {
   Body2span,
   Caption,
   H1,
+  H1span,
   H2,
+  H2span,
   H3,
+  H3span,
   H4,
+  H4span,
   Link1,
   Link2,
   Overline,
@@ -26,9 +30,13 @@ const locationText = 'Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich
 export const Typography = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
     <H1>{`H1: ${locationText}`}</H1>
+    <H1span>{`H1span: ${locationText}`}</H1span>
     <H2>{`H2: ${locationText}`}</H2>
+    <H2span>{`H2span: ${locationText}`}</H2span>
     <H3>{`H3: ${locationText}`}</H3>
+    <H3span>{`H3span: ${locationText}`}</H3span>
     <H4>{`H4: ${locationText}`}</H4>
+    <H4span>{`H4span: ${locationText}`}</H4span>
     <Body1>{`Body1: ${locationText}`}</Body1>
     <Body1span>{`Body1span: ${locationText}`}</Body1span>
     <Subtitle1>{`Subtitle1: ${locationText}`}</Subtitle1>

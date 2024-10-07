@@ -21,9 +21,13 @@ const createTypographyComponents = () => {
 
 export const {
   h1: H1,
+  h1span: H1span,
   h2: H2,
+  h2span: H2span,
   h3: H3,
+  h3span: H3span,
   h4: H4,
+  h4span: H4span,
   body1: Body1,
   body1span: Body1span,
   subtitle1: Subtitle1,

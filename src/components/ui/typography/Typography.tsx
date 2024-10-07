@@ -4,9 +4,13 @@ import clsx from 'clsx'
 
 export const TypographyVariants = {
   h1: 'h1',
+  h1span: 'span',
   h2: 'h2',
+  h2span: 'span',
   h3: 'h3',
+  h3span: 'span',
   h4: 'h4',
+  h4span: 'span',
   body1: 'p',
   body1span: 'span',
   subtitle1: 'p',
