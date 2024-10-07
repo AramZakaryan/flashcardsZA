@@ -1,16 +1,20 @@
 import {
+  Body1,
+  Body1span,
+  Body2,
+  Body2span,
+  Caption,
   H1,
   H2,
   H3,
   H4,
-  Body1,
-  Subtitle1,
-  Body2,
-  Subtitle2,
-  Caption,
-  Overline,
   Link1,
   Link2,
+  Overline,
+  Subtitle1,
+  Subtitle1span,
+  Subtitle2,
+  Subtitle2span,
 } from './individualComponents'
 
 export default {
@@ -26,9 +30,13 @@ export const Typography = () => (
     <H3>{`H3: ${locationText}`}</H3>
     <H4>{`H4: ${locationText}`}</H4>
     <Body1>{`Body1: ${locationText}`}</Body1>
+    <Body1span>{`Body1span: ${locationText}`}</Body1span>
     <Subtitle1>{`Subtitle1: ${locationText}`}</Subtitle1>
+    <Subtitle1span>{`Subtitle1span: ${locationText}`}</Subtitle1span>
     <Body2>{`Body2: ${locationText}`}</Body2>
+    <Body2span>{`Body2span: ${locationText}`}</Body2span>
     <Subtitle2>{`Subtitle2: ${locationText}`}</Subtitle2>
+    <Subtitle2span>{`Subtitle2span: ${locationText}`}</Subtitle2span>
     <Caption>{`Caption: ${locationText}`}</Caption>
     <Overline>{`Overline: ${locationText}`}</Overline>
     <Link1

@@ -8,9 +8,13 @@ export const TypographyVariants = {
   h3: 'h3',
   h4: 'h4',
   body1: 'p',
+  body1span: 'span',
   subtitle1: 'p',
+  subtitle1span: 'span',
   body2: 'p',
+  body2span: 'span',
   subtitle2: 'p',
+  subtitle2span: 'span',
   caption: 'span',
   overline: 'p',
   link1: 'a',
@@ -23,7 +27,7 @@ export type TypographyProps<T extends ElementType> = {
   className?: string
 } & ComponentPropsWithoutRef<T>
 
-export const Typography = <T extends ElementType = 'p'>(props: TypographyProps<T>) => {
+export const Typography = <T extends ElementType>(props: TypographyProps<T>) => {
   const { as: Component = 'p', className, variant = 'body1', ...rest } = props
 
   return <Component className={clsx(s.typography, s[variant], className)} {...rest} />

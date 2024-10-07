@@ -30,25 +30,29 @@
   line-height: var(--line-height-m-24);
 }
 
-.body1 {
+.body1,
+.body1span {
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-m-16);
   line-height: var(--line-height-m-24);
 }
 
-.subtitle1 {
+.subtitle1,
+.subtitle1span {
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-m-16);
   line-height: var(--line-height-m-24);
 }
 
-.body2 {
+.body2,
+.body2span {
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-s-14);
   line-height: var(--line-height-m-24);
 }
 
-.subtitle2 {
+.subtitle2,
+.subtitle2span {
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-s-14);
   line-height: var(--line-height-m-24);
