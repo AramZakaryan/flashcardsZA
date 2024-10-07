@@ -36,17 +36,17 @@ export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) 
   return (
     <Component
       className={clsx(
-        className,
         s.button,
         s[variant],
         fullWidth && s.fullWidth,
-        Component === 'a' && disabled && s.disabledLink
+        Component === 'a' && disabled && s.disabledLink,
+        className
       )}
       disabled={Component !== 'a' && disabled}
       onClick={Component !== 'a' && disabled ? handleDisabledClick : onClick}
       {...rest}
     >
-      <Subtitle2span>{children}</Subtitle2span>
+      <Subtitle2span className={s.content}>{children}</Subtitle2span>
     </Component>
   )
 }
