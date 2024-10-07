@@ -1,8 +1,8 @@
-import { MouseEvent, ComponentPropsWithoutRef, ElementType } from 'react'
+import { ComponentPropsWithoutRef, ElementType, MouseEvent } from 'react'
 
 import s from './button.module.scss'
 import clsx from 'clsx'
-import { Subtitle2 } from '@/components/ui/typography'
+import { Subtitle2span } from '@/components/ui/typography'
 
 export type ButtonProps<T extends ElementType> = {
   as?: T
@@ -40,13 +40,13 @@ export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) 
         s.button,
         s[variant],
         fullWidth && s.fullWidth,
-        Component === 'a' && disabled && s.disabledLink,
+        Component === 'a' && disabled && s.disabledLink
       )}
       disabled={Component !== 'a' && disabled}
       onClick={Component !== 'a' && disabled ? handleDisabledClick : onClick}
       {...rest}
     >
-      <Subtitle2>{children}</Subtitle2>
+      <Subtitle2span>{children}</Subtitle2span>
     </Component>
   )
 }
