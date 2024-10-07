@@ -1,11 +1,9 @@
 .typography {
-  all: unset;
   // defaults
   font-family: var(--font-family-primary), sans-serif;
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-xxl-26);
   line-height: var(--line-height-l-36);
-  //color: inherit;
 }
 
 .h1 {
