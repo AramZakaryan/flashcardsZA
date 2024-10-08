@@ -1,10 +1,14 @@
-import { H3 } from '@/components/ui'
+import { Input } from '@/components/ui'
+import { useState } from 'react'
 
 export function App() {
+  const [value, setValue] = useState<string>('')
+
+  console.log(value)
   return (
     <>
       <div>Hello</div>
-      <H3>aaa</H3>
+      <Input variant={'text'} value={value} onValueChange={setValue} />
     </>
   )
 }
