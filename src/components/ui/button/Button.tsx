@@ -13,7 +13,7 @@ export type ButtonProps<T extends ElementType> = {
 } & ComponentPropsWithoutRef<T>
 
 /** ZA: polymorphic button with custom styles */
-export const Button = <T extends ElementType>(props: ButtonProps<T>) => {
+export const Button = <T extends ElementType = 'button' | 'a'>(props: ButtonProps<T>) => {
   const {
     as: Component = 'button',
     className,
