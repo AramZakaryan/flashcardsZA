@@ -11,6 +11,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "preview": "vite preview",
     "storybook": "storybook dev",
+    "storybook6006": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
