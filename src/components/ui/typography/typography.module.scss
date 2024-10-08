@@ -70,6 +70,16 @@
   line-height: var(--line-height-s-16);
 }
 
+.link0,
+a.link0 {
+  cursor: pointer;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-m-16);
+  line-height: var(--line-height-m-24);
+  color: var(--color-accent-500);
+  text-decoration: underline;
+}
+
 .link1,
 a.link1 {
   cursor: pointer;
