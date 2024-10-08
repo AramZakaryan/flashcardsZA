@@ -21,6 +21,7 @@ export const TypographyVariants = {
   subtitle2span: 'span',
   caption: 'span',
   overline: 'p',
+  link0: 'a',
   link1: 'a',
   link2: 'a',
 } as const

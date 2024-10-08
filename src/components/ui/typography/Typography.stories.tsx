@@ -12,6 +12,7 @@ import {
   H3span,
   H4,
   H4span,
+  Link0,
   Link1,
   Link2,
   Overline,
@@ -47,6 +48,11 @@ export const Typography = () => (
     <Subtitle2span>{`Subtitle2span: ${locationText}`}</Subtitle2span>
     <Caption>{`Caption: ${locationText}`}</Caption>
     <Overline>{`Overline: ${locationText}`}</Overline>
+    <Link0
+      href={'#'}
+      target={'_blank'}
+      rel={'noopener noreferrer'}
+    >{`Link0: ${locationText}`}</Link0>
     <Link1
       href={'#'}
       target={'_blank'}

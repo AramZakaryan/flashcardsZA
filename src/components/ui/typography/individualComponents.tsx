@@ -38,6 +38,7 @@ export const {
   subtitle2span: Subtitle2span,
   caption: Caption,
   overline: Overline,
+  link0: Link0,
   link1: Link1,
   link2: Link2,
 } = createTypographyComponents()
