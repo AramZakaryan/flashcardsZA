@@ -1,5 +1,3 @@
-'use client'
-
 import * as React from 'react'
 import * as SliderPrimitive from '@radix-ui/react-slider'
 import { clsx } from 'clsx'
@@ -18,7 +16,7 @@ const Slider = React.forwardRef<
   }, [max, value])
 
   return (
-    <div className={s.container}>
+    <div className={s.rootContainer}>
       <span className={s.valueDisplay}>{value?.[0]}</span>
       <SliderPrimitive.Root
         ref={ref}
