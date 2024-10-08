@@ -15,6 +15,9 @@ const meta = {
     fullWidth: {
       control: { type: 'boolean' },
     },
+    onClick: {
+      action: 'Button Click',
+    },
   },
   args: {
     as: 'button', // Set default value here
@@ -110,5 +113,37 @@ export const SecondaryLinkLikeButtonDisabled: Story = {
     children: 'Secondary Link Disabled that looks like a button',
     disabled: true,
     variant: 'secondary',
+  },
+}
+
+export const Text: Story = {
+  args: {
+    children: 'Text Button',
+    variant: 'text',
+  },
+}
+
+export const TextDisabled: Story = {
+  args: {
+    ...Text.args,
+    disabled: true,
+  },
+}
+
+export const TextLink: Story = {
+  args: {
+    as: 'a',
+    children: 'Text Link',
+    variant: 'text',
+    href: '#',
+  },
+}
+
+export const TextLinkDisabled: Story = {
+  args: {
+    as: 'a',
+    children: 'Text Link',
+    variant: 'text',
+    disabled: true,
   },
 }

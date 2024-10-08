@@ -94,6 +94,16 @@
   }
 }
 
+.text {
+  padding: 0;
+  background-color: transparent;
+
+  &:disabled,
+  &.disabledLink {
+    color: var(--color-light-900);
+  }
+}
+
 .fullWidth {
   width: 100%;
   text-align: center;

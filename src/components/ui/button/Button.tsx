@@ -8,7 +8,7 @@ export type ButtonProps<T extends ElementType> = {
   as?: T
   /** ZA: this will make the button width 100% */
   fullWidth?: boolean
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary' | 'secondary' | 'text'
   disabled?: boolean
 } & ComponentPropsWithoutRef<T>
 
@@ -43,7 +43,7 @@ export const Button = <T extends ElementType>(props: ButtonProps<T>) => {
         className
       )}
       disabled={Component !== 'a' && disabled}
-      onClick={Component !== 'a' && disabled ? handleDisabledClick : onClick}
+      onClick={Component === 'a' && disabled ? handleDisabledClick : onClick}
       {...rest}
     >
       <Subtitle2span className={s.content}>{children}</Subtitle2span>
