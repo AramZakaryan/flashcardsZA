@@ -3,12 +3,12 @@ import { clsx } from 'clsx'
 import s from './card.module.scss'
 import { H1 } from '@/components/ui/typography'
 
-export type CardProps<T extends ElementType = 'div'> = {
+export type CardProps<T extends ElementType> = {
   as?: T
   title?: string
 } & ComponentPropsWithoutRef<T>
 
-export const Card = <T extends ElementType = 'div'>(props: CardProps<T>) => {
+export const Card = <T extends ElementType>(props: CardProps<T>) => {
   const { as: Component = 'div', className, title, children, ...rest } = props
 
   return (
