@@ -1,5 +1,5 @@
 import { usePagination } from '@/hooks/usePagination'
-import { ArrowIosBack, ArrowIosForward, Body2, Select, SelectProps } from '@/components/ui'
+import { ArrowIosBack, ArrowIosForward, Body2span, Select, SelectProps } from '@/components/ui'
 import clsx from 'clsx'
 import s from './pagination.module.scss'
 
@@ -64,7 +64,7 @@ export const Pagination = ({
               className={clsx(s.item, { [s.dots]: page === '…' }, { [s.selected]: isCurrentPage })}
               onClick={handleChangePage}
             >
-              <Body2>{page}</Body2>
+              <Body2span>{page}</Body2span>
             </button>
           )
         })}
@@ -79,11 +79,11 @@ export const Pagination = ({
       </div>
 
       {selectOptions && setPageSize && (
-        <Body2 className={s.selectContainer}>
+        <Body2span className={s.selectContainer}>
           show
           <Select isCompact onValueChange={handleSelectValueChange} options={selectOptions} />
           on page
-        </Body2>
+        </Body2span>
       )}
     </div>
   )
