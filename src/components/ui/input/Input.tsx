@@ -68,7 +68,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     }
 
     return (
-      <div className={clsx(className, s.rootContainer)}>
+      <div className={clsx(s.inputRootContainer, className)}>
         {label && (
           <label className={clsx(s.label, disabled && s.disabled)}>
             <Body2span>{label}</Body2span>

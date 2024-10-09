@@ -16,7 +16,7 @@ const Slider = React.forwardRef<
   }, [max, value])
 
   return (
-    <div className={s.rootContainer}>
+    <div className={s.sliderRootContainer}>
       <span className={s.valueDisplay}>{value?.[0]}</span>
       <SliderPrimitive.Root
         ref={ref}
