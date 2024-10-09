@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form'
-import { Button, Input } from '@/components'
+import { Body2span, Button, Card, ControlledInput, Input, Link0 } from '@/components'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import s from './signIn.module.scss'
@@ -28,14 +28,9 @@ export const SignIn = () => {
   })
 
   return (
-    <form onSubmit={onSubmit} className={s.form}>
+    <Card as={'form'} title={'Sign In'} onSubmit={onSubmit} className={s.card}>
       <DevTool control={control} />
-      <Input
-        label={'Email'}
-        {...register('email')}
-        error={!!errors?.email}
-        errorMessage={errors?.email?.message}
-      />
+      <ControlledInput label={'Email'} name={'email'} control={control} />
       <Input
         label={'Password'}
         variant={'password'}
@@ -43,8 +38,20 @@ export const SignIn = () => {
         error={!!errors?.password}
         errorMessage={errors?.password?.message}
       />
-      <ControlledCheckbox label={'Remember Me'} name={'rememberMe'} control={control} />
-      <Button type="submit">Submit</Button>
-    </form>
+      <ControlledCheckbox
+        label={'Remember Me'}
+        name={'rememberMe'}
+        control={control}
+        className={s.rememberMe}
+      />
+      <Button as={'a'} variant={'text'} className={s.forgotPassword}>
+        Forgot Password?
+      </Button>
+      <Button type="submit" fullWidth>
+        Sign in
+      </Button>
+      <Body2span>Don't have an account?</Body2span>
+      <Link0>Sign Up</Link0>
+    </Card>
   )
 }

@@ -23,10 +23,10 @@ export const Checkbox = forwardRef<ElementRef<typeof CheckboxRadix.Root>, Checkb
   ) => {
     const finalId = useFinalId(id)
     return (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div className={clsx(s.checkboxRootContainer, className)}>
         <CheckboxRadix.Root
           checked={checked}
-          className={clsx(className, s.CheckboxRoot)}
+          className={clsx(s.CheckboxRoot)}
           id={finalId}
           disabled={disabled}
           onCheckedChange={onValueChange}
@@ -37,7 +37,7 @@ export const Checkbox = forwardRef<ElementRef<typeof CheckboxRadix.Root>, Checkb
             <CheckIcon className={s.CheckIcon} />
           </CheckboxRadix.Indicator>
         </CheckboxRadix.Root>
-        <Label.Root className={clsx(className, s.Label, disabled && s.disabled)} htmlFor={finalId}>
+        <Label.Root className={clsx(s.Label, disabled && s.disabled)} htmlFor={finalId}>
           <Body2span>{label}</Body2span>
         </Label.Root>
       </div>

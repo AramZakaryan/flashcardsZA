@@ -45,7 +45,7 @@ export const Pagination = ({
   const isLastPage = currentPage === paginationRange[paginationRange.length - 1]
 
   return (
-    <div className={clsx(s.rootContainer)}>
+    <div className={clsx(s.paginationRootContainer)}>
       <div className={s.paginationContainer}>
         <button className={clsx(s.item, s.arrow)} disabled={isFirstPage} onClick={handleClickBack}>
           <ArrowIosBack width={16} />
