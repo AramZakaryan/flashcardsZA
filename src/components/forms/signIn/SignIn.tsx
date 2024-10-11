@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form'
-import { Body2span, Button, Card, ControlledInput, Input, Link0 } from '@/components'
+import { Body2span, Button, Card, ControlledInput, Link0 } from '@/components'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import s from './signIn.module.scss'
@@ -15,28 +15,28 @@ const signInSchema = z.object({
 
 type SignInFormValues = z.infer<typeof signInSchema>
 
-export const SignIn = () => {
-  const {
-    control,
-    formState: { errors },
-    register,
-    handleSubmit,
-  } = useForm<SignInFormValues>({ resolver: zodResolver(signInSchema) })
+type SignInProps = {
+  onSubmit?: (data: SignInFormValues) => void
+}
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data)
+export const SignIn = ({ onSubmit }: SignInProps) => {
+  const { control, handleSubmit } = useForm<SignInFormValues>({
+    resolver: zodResolver(signInSchema),
+  })
+
+  const onSubmitHandler = handleSubmit((data) => {
+    onSubmit(data)
   })
 
   return (
-    <Card as={'form'} title={'Sign In'} onSubmit={onSubmit} className={s.card}>
+    <Card as={'form'} title={'Sign In'} onSubmit={onSubmitHandler}>
       <DevTool control={control} />
       <ControlledInput label={'Email'} name={'email'} control={control} />
-      <Input
+      <ControlledInput
         label={'Password'}
         variant={'password'}
-        {...register('password')}
-        error={!!errors?.password}
-        errorMessage={errors?.password?.message}
+        name={'password'}
+        control={control}
       />
       <ControlledCheckbox
         label={'Remember Me'}
@@ -44,14 +44,14 @@ export const SignIn = () => {
         control={control}
         className={s.rememberMe}
       />
-      <Button as={'a'} variant={'text'} className={s.forgotPassword}>
+      <Button as={'a'} variant={'text'} href={'#'} className={s.forgotPassword}>
         Forgot Password?
       </Button>
       <Button type="submit" fullWidth>
         Sign in
       </Button>
-      <Body2span>Don't have an account?</Body2span>
-      <Link0>Sign Up</Link0>
+      <Body2span>Don&#39;t have an account?</Body2span>
+      <Link0 href={'#'}>Sign Up</Link0>
     </Card>
   )
 }
