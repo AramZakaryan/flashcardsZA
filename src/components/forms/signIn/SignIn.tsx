@@ -47,7 +47,7 @@ export const SignIn = ({ onSubmit }: SignInProps) => {
       <Button as={'a'} variant={'text'} href={'#'} className={s.forgotPassword}>
         Forgot Password?
       </Button>
-      <Button type="submit" fullWidth>
+      <Button type="submit" fullWidth className={s.buttonSignIn}>
         Sign in
       </Button>
       <Body2span>Don&#39;t have an account?</Body2span>
