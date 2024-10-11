@@ -12,11 +12,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-  argTypes: {
-    onSubmit: {
-      action: 'on Submit',
-    },
-  },
   args: {
     email: 'example@mail.com',
   },
