@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { confirmPasswordSchema, emailSchema, passwordSchema } from '@/utils'
 import { DevTool } from '@hookform/devtools'
+import s from './signUp.module.scss'
 
 const signUpSchema = z
   .object({
@@ -48,7 +49,7 @@ export const SignUp = ({ onSubmit }: SignUpProps) => {
         name={'confirmPassword'}
         control={control}
       />
-      <Button type="submit" fullWidth>
+      <Button type="submit" fullWidth className={s.buttonSignUp}>
         Sign Up
       </Button>
       <Body2span>Already have an account?</Body2span>
