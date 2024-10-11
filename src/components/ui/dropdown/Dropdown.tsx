@@ -1,5 +1,5 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
-import ivanImage from '@/assets/image/ivan.png'
+import ivanImage from '@/assets/image/john.png'
 import s from './dropdown.module.scss'
 import { Caption, LogOutOutline, PersonOutline, Subtitle2 } from '@/components'
 import { clsx } from 'clsx'
