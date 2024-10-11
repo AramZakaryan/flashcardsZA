@@ -1,0 +1,39 @@
+.imageContainer {
+  position: relative;
+  display: block;
+}
+
+.image {
+  display: block;
+  width: 96px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.editImage {
+  position: absolute;
+  right: 0;
+  transform: translateY(-24px);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: var(--color-dark-300);
+}
+
+.nickname {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.email {
+  margin-top: -27px;
+  color: var(--color-dark-100);
+}
+
+.buttonLogOut {
+  margin-top: 33px;
+}
