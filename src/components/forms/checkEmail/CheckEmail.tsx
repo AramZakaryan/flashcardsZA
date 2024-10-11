@@ -11,7 +11,7 @@ export const CheckEmail = ({ email }: CheckEmailProps) => {
     <Card as={'form'} title={'Check Email'}>
       <img src={checkEmailSvg} alt={'Check Email'} />
       <Body2span className={s.furtherInstruction}>
-        We’ve sent an Email with instructions <br />
+        We’ve sent an Email with instructions to <br />
         {email}
       </Body2span>
       <Button type="button" as={'a'} href={'#'} fullWidth className={s.buttonBackToSignIn}>
