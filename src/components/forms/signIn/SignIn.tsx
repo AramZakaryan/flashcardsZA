@@ -25,7 +25,7 @@ export const SignIn = ({ onSubmit }: SignInProps) => {
   })
 
   const onSubmitHandler = handleSubmit((data) => {
-    onSubmit(data)
+    onSubmit?.(data)
   })
 
   return (
