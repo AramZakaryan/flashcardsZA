@@ -1,22 +1,26 @@
-// Generate individual components based on TypographyVariants keys
+import { Typography, TypographyProps, TypographyVariants } from './Typography'
+import { ElementType, ReactNode } from 'react'
 
-import {
-  Typography,
-  TypographyProps,
-  TypographyVariants,
-} from '@/components/ui/typography/Typography'
+type KeysOfTypographyVariants = keyof typeof TypographyVariants
 
-const createTypographyComponents = () => {
-  const components: Record<string, typeof Typography> = {}
+const createIndividualComponents = () => {
+  const IndividualComponents = {} as {
+    [K in KeysOfTypographyVariants]: (
+      props: Omit<TypographyProps<(typeof TypographyVariants)[K]>, 'as' | 'variant'>
+    ) => ReactNode
+  }
 
-  Object.keys(TypographyVariants).forEach((variant) => {
-    const tag = TypographyVariants[variant as keyof typeof TypographyVariants]
-    components[variant] = (props: TypographyProps<typeof tag>) => (
-      <Typography as={tag} variant={variant as keyof typeof TypographyVariants} {...props} />
-    )
+  ;(Object.keys(TypographyVariants) as Array<KeysOfTypographyVariants>).forEach((variant) => {
+    const tagForDel: ElementType = TypographyVariants[variant]
+
+    IndividualComponents[variant] = (
+      restProps: Omit<TypographyProps<typeof tagForDel>, 'as' | 'variant'>
+    ) => {
+      return <Typography as={tagForDel} variant={variant} {...restProps} />
+    }
   })
 
-  return components
+  return IndividualComponents
 }
 
 export const {
@@ -41,4 +45,4 @@ export const {
   link0: Link0,
   link1: Link1,
   link2: Link2,
-} = createTypographyComponents()
+} = createIndividualComponents()
