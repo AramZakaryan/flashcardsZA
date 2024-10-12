@@ -1,5 +1,18 @@
-import { Table, TBody, Td, Th, THead, Tr } from '@/components/ui/table/Table'
+import { action } from '@storybook/addon-actions'
+
+import {
+  Column,
+  Sort,
+  Table,
+  TBody,
+  Td,
+  Th,
+  THead,
+  THeadWithSort,
+  Tr,
+} from '@/components/ui/table/Table'
 import { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
 
 const meta = {
   component: Table,
@@ -25,25 +38,84 @@ export const TableDefault: Story = {
         </THead>
         <TBody>
           <Tr>
-            <Td>Pack Name</Td>
+            <Td>Deck Name</Td>
             <Td>4</Td>
             <Td>18.03.2021</Td>
-            <Td>Ivan Ivanov</Td>
+            <Td>John Johnson</Td>
           </Tr>
           <Tr>
-            <Td>Pack Name</Td>
+            <Td>Deck Name</Td>
             <Td>4</Td>
             <Td>18.03.2021</Td>
-            <Td>Ivan Ivanov</Td>
+            <Td>John Johnson</Td>
           </Tr>
           <Tr>
-            <Td>Pack Name</Td>
+            <Td>Deck Name</Td>
             <Td>4</Td>
             <Td>18.03.2021</Td>
-            <Td>Ivan Ivanov</Td>
+            <Td>John Johnson</Td>
           </Tr>
         </TBody>
       </Table>
     ),
+  },
+}
+
+export const THeaderWithSort: Story = {
+  render: () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [sort, setSort] = useState<Sort>({ direction: 'asc', key: 'Name' })
+
+    const columns: Column[] = [
+      {
+        key: 'Name',
+        title: 'Name',
+      },
+      {
+        key: 'Cards',
+        title: 'Cards',
+      },
+      {
+        key: 'Last Updated',
+        title: 'Last Updated',
+      },
+      {
+        key: 'Created By',
+        title: 'Created By',
+      },
+    ]
+
+    return (
+      <Table>
+        <THeadWithSort
+          columns={columns}
+          onSort={(sort) => {
+            setSort(sort)
+            action('on Sort')(sort)
+          }}
+          sort={sort}
+        />
+        {/*<TBody>*/}
+        {/*  <Tr>*/}
+        {/*    <Td>Deck aaa</Td>*/}
+        {/*    <Td>10</Td>*/}
+        {/*    <Td>10.03.2021</Td>*/}
+        {/*    <Td>Aaa John Johnson</Td>*/}
+        {/*  </Tr>*/}
+        {/*  <Tr>*/}
+        {/*    <Td>Deck bbb</Td>*/}
+        {/*    <Td>20</Td>*/}
+        {/*    <Td>20.03.2021</Td>*/}
+        {/*    <Td>Bbb John Johnson</Td>*/}
+        {/*  </Tr>*/}
+        {/*  <Tr>*/}
+        {/*    <Td>Deck ccc</Td>*/}
+        {/*    <Td>30</Td>*/}
+        {/*    <Td>30.03.2021</Td>*/}
+        {/*    <Td>Ccc John Johnson</Td>*/}
+        {/*  </Tr>*/}
+        {/*</TBody>*/}
+      </Table>
+    )
   },
 }
