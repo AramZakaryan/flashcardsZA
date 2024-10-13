@@ -2,6 +2,7 @@ import { usePagination } from '@/hooks/usePagination'
 import { ArrowIosBack, ArrowIosForward, Body2span, Select, SelectProps } from '@/components/ui'
 import clsx from 'clsx'
 import s from './pagination.module.scss'
+import { ComponentPropsWithoutRef } from 'react'
 
 type PaginationProps = {
   currentPage: number
@@ -11,7 +12,7 @@ type PaginationProps = {
   totalCount: number
 } & {
   selectOptions?: SelectProps['options']
-}
+} & ComponentPropsWithoutRef<'div'>
 
 export const Pagination = ({
   currentPage,
@@ -20,6 +21,8 @@ export const Pagination = ({
   pageSize,
   totalCount,
   selectOptions,
+  className,
+  ...restProps
 }: PaginationProps) => {
   const paginationRange = usePagination({
     currentPage,
@@ -45,7 +48,7 @@ export const Pagination = ({
   const isLastPage = currentPage === paginationRange[paginationRange.length - 1]
 
   return (
-    <div className={clsx(s.paginationRootContainer)}>
+    <div className={clsx(s.paginationRootContainer, className)} {...restProps}>
       <div className={s.paginationContainer}>
         <button className={clsx(s.item, s.arrow)} disabled={isFirstPage} onClick={handleClickBack}>
           <ArrowIosBack width={16} />
