@@ -2,6 +2,7 @@ import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 import { clsx } from 'clsx'
 import s from './table.module.scss'
 import { ArrowIosDownOutline, ArrowIosUp, Body2span, Subtitle2span } from '@/components'
+import { Direction, Key } from '@/services/decks/decks.types'
 
 export const Table = forwardRef<HTMLTableElement, ComponentPropsWithoutRef<'table'>>(
   ({ className, ...restProps }, forwardedRef) => {
@@ -18,23 +19,25 @@ export const THead = forwardRef<ElementRef<'thead'>, ComponentPropsWithoutRef<'t
 THead.displayName = 'THead'
 
 export type Column = {
-  key: string
+  /** ZA: key is the name of column used on backend */
+  key: Key
   title: string
 }
 
 export type Sort = {
-  direction: 'asc' | 'desc'
-  key: string
+  /** ZA: key is the name of column used on backend */
+  key: Key
+  direction: Direction
 } | null
 
-type THeadWithSortProps = {
+export type THeadWithSortProps = {
   columns: Column[]
   onSort?: (sort: Sort) => void
   sort?: Sort
 } & Omit<ComponentPropsWithoutRef<'thead'>, 'children'>
 
 export const THeadWithSort = ({ columns, sort, onSort, ...restProps }: THeadWithSortProps) => {
-  const handleSort = (key: string): void => {
+  const handleSort = (key: Key): void => {
     if (!onSort) return
 
     // ZA: Check if the clicked column is different from the currently sorted column
