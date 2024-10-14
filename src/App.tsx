@@ -1,14 +1,13 @@
-import { Input } from '@/components/ui'
-import { useState } from 'react'
+// src/App.tsx
+
+import { Router } from '@/router'
+import { Provider } from 'react-redux'
+import { store } from '@/services/store'
 
 export function App() {
-  const [value, setValue] = useState<string>('')
-
-  console.log(value)
   return (
-    <>
-      <div>Hello</div>
-      <Input variant={'text'} value={value} onValueChange={setValue} />
-    </>
+    <Provider store={store}>
+      <Router />
+    </Provider>
   )
 }
