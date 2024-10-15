@@ -22,6 +22,7 @@ export type Column = {
   /** ZA: key is the name of column used on backend */
   key: Key
   title: string
+  sortable?: boolean
 }
 
 export type Sort = {
@@ -37,14 +38,14 @@ export type THeadWithSortProps = {
 } & Omit<ComponentPropsWithoutRef<'thead'>, 'children'>
 
 export const THeadWithSort = ({ columns, sort, onSort, ...restProps }: THeadWithSortProps) => {
-  const handleSort = (key: Key): void => {
-    if (!onSort) return
+  const handleSort = (column: Column): void => {
+    if (!onSort || !column.sortable) return
 
     // ZA: Check if the clicked column is different from the currently sorted column
-    if (key !== sort?.key) return onSort({ direction: 'asc', key })
+    if (column.key !== sort?.key) return onSort({ direction: 'asc', key: column.key })
 
     // ZA: If the current column is the same and the direction is ascending
-    if (sort.direction === 'asc') return onSort({ direction: 'desc', key })
+    if (sort.direction === 'asc') return onSort({ direction: 'desc', key: column.key })
 
     // ZA: Reset the sort if the current column is the same and the direction is descending
     return onSort(null)
@@ -53,12 +54,12 @@ export const THeadWithSort = ({ columns, sort, onSort, ...restProps }: THeadWith
   return (
     <THead {...restProps}>
       <Tr>
-        {columns.map(({ key, title }) => (
-          <Th key={key} onClick={() => handleSort(key)}>
-            {title}
+        {columns.map((column) => (
+          <Th key={column.key} onClick={() => handleSort(column)}>
+            {column.title}
             <div className={s.iconContainer}>
               {sort &&
-                sort.key === key &&
+                sort.key === column.key &&
                 (sort.direction === 'asc' ? (
                   <ArrowIosUp width={12} className={s.icon} />
                 ) : (
