@@ -1,25 +1,33 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef } from 'react'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 import clsx from 'clsx'
 import s from './tabs.module.scss'
+import { Body2span } from '@/components'
 
-const Tabs = TabsPrimitive.Root
+export type TabsProps = {
+  label?: string
+  options?: {
+    value: string
+    text: string
+  }[]
+} & ComponentPropsWithoutRef<typeof TabsPrimitive.Root>
 
-const TabsList = forwardRef<
-  ElementRef<typeof TabsPrimitive.List>,
-  ComponentPropsWithoutRef<typeof TabsPrimitive.List>
->(({ className, ...props }, forwardedRef) => (
-  <TabsPrimitive.List ref={forwardedRef} className={clsx(s.tabsList, className)} {...props} />
-))
-TabsList.displayName = TabsPrimitive.List.displayName
-
-const TabsTrigger = forwardRef<
-  ElementRef<typeof TabsPrimitive.Trigger>,
-  ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, forwardedRef) => (
-  <TabsPrimitive.Trigger ref={forwardedRef} className={clsx(s.tabsTrigger, className)} {...props} />
-))
-TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
+export const Tabs = ({ label, className, options }: TabsProps) => {
+  return (
+    <div className={clsx(s.mainContainer, className)}>
+      <Body2span>{label}</Body2span>
+      <TabsPrimitive.Root className={s.root}>
+        <TabsPrimitive.List className={s.tabsList}>
+          {options?.map(({ value, text }) => (
+            <TabsPrimitive.Trigger key={value} value={value} className={s.tabsTrigger}>
+              {text}
+            </TabsPrimitive.Trigger>
+          ))}
+        </TabsPrimitive.List>
+      </TabsPrimitive.Root>
+    </div>
+  )
+}
 
 // const TabsContent = forwardRef<
 //   ElementRef<typeof TabsPrimitive.Content>,
@@ -28,11 +36,3 @@ TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 //   <TabsPrimitive.Content ref={forwardedRef} className={clsx(s.tabsContent, className)} {...props} />
 // ))
 // TabsContent.displayName = TabsPrimitive.Content.displayName
-
-export {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  // TabsContent
-  s,
-}

@@ -1,3 +1,6 @@
+.root {
+}
+
 .tabsList {
   display: inline-flex;
   height: 36px;
@@ -57,10 +60,10 @@
   ring: 2px solid #3b82f6; /* Blue focus ring */
   border-radius: 4px;
 }
-
-.tabsContent {
-  margin-top: 8px;
-  ring-offset-background: var(--ring-offset-background);
-  outline: none;
-  ring: 2px solid var(--ring-color);
-}
+//
+//.tabsContent {
+//  margin-top: 8px;
+//  ring-offset-background: var(--ring-offset-background);
+//  outline: none;
+//  ring: 2px solid var(--ring-color);
+//}
