@@ -40,5 +40,15 @@ export type GetDecksArgs = {
 
 export type OrderBy = `${Key}-${Direction}` | null
 /** ZA: Key is the name of column used on backend */
-export type Key = 'cardsCount' | 'updated' | 'name' | 'author.name' | 'created'
+export type Key = 'cardsCount' | 'updated' | 'name' | 'author.name' | 'created' | null
 export type Direction = 'asc' | 'desc'
+
+export type CreateDeckArgs = {
+  cover?: File | null // in FormData
+  name: string // min: 3  max: 30
+  isPrivate?: boolean
+}
+
+export type DeleteDeckArgs = {
+  id: string
+}
