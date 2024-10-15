@@ -12,6 +12,7 @@ type PaginationProps = {
   totalCount: number
 } & {
   selectOptions?: SelectProps['options']
+  defaultValue?: SelectProps['defaultValue']
 } & ComponentPropsWithoutRef<'div'>
 
 export const Pagination = ({
@@ -20,6 +21,7 @@ export const Pagination = ({
   setPageSize,
   pageSize,
   totalCount,
+  defaultValue,
   selectOptions,
   className,
   ...restProps
@@ -84,7 +86,12 @@ export const Pagination = ({
       {selectOptions && setPageSize && (
         <Body2span className={s.selectContainer}>
           show
-          <Select isCompact onValueChange={handleSelectValueChange} options={selectOptions} />
+          <Select
+            isCompact
+            defaultValue={defaultValue}
+            onValueChange={handleSelectValueChange}
+            options={selectOptions}
+          />
           on page
         </Body2span>
       )}
