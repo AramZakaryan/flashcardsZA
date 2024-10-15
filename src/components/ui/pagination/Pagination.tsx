@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import s from './pagination.module.scss'
 import { ComponentPropsWithoutRef } from 'react'
 
-type PaginationProps = {
+export type PaginationProps = {
   currentPage: number
   onChangePage: (page: number) => void
   setPageSize?: (pageSize: number) => void
