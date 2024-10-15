@@ -1,11 +1,31 @@
 import { DecksListResponse } from '@/services/decks/decks.types'
-import { Column, Table, TBody, Td, THeadWithSort, THeadWithSortProps, Tr } from '@/components'
+import {
+  Column,
+  Edit2Outline,
+  PlayCircleOutline,
+  Table,
+  TBody,
+  Td,
+  THeadWithSort,
+  THeadWithSortProps,
+  Tr,
+  TrashOutline,
+} from '@/components'
+import s from './decksTable.module.scss'
+import { useDeleteDeckMutation } from '@/services/decks'
 
 type DecksTableProps = {
   decks?: DecksListResponse['items']
 } & Omit<THeadWithSortProps, 'columns'>
 
 export const DecksTable = ({ decks, onSort, sort }: DecksTableProps) => {
+  const [deleteDeck, { isLoading: isDeckBeingDeleted, error: errorDeleteDeck }] =
+    useDeleteDeckMutation()
+
+  if (errorDeleteDeck) {
+    return <div>Error: {JSON.stringify(errorDeleteDeck)}</div>
+  }
+
   const columns: Column[] = [
     {
       key: 'name',
@@ -23,6 +43,11 @@ export const DecksTable = ({ decks, onSort, sort }: DecksTableProps) => {
       key: 'author.name',
       title: 'Created By',
     },
+    {
+      key: null,
+      title: '',
+      sortable: false,
+    },
   ]
   return (
     <Table>
@@ -36,6 +61,20 @@ export const DecksTable = ({ decks, onSort, sort }: DecksTableProps) => {
               <Td>{deck.cardsCount}</Td>
               <Td>{updatedAt}</Td>
               <Td>{deck.author.name}</Td>
+              <Td className={s.actions}>
+                <PlayCircleOutline width={16} />
+                <Edit2Outline width={16} />
+                <TrashOutline
+                  width={16}
+                  onClick={() => {
+                    if (!isDeckBeingDeleted) {
+                      deleteDeck({ id: deck?.id })
+                    }
+                  }}
+                >
+                  Delete Deck
+                </TrashOutline>
+              </Td>
             </Tr>
           )
         })}
