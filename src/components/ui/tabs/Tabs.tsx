@@ -21,12 +21,18 @@ const TabsTrigger = forwardRef<
 ))
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
-const TabsContent = forwardRef<
-  ElementRef<typeof TabsPrimitive.Content>,
-  ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
->(({ className, ...props }, forwardedRef) => (
-  <TabsPrimitive.Content ref={forwardedRef} className={clsx(s.tabsContent, className)} {...props} />
-))
-TabsContent.displayName = TabsPrimitive.Content.displayName
+// const TabsContent = forwardRef<
+//   ElementRef<typeof TabsPrimitive.Content>,
+//   ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
+// >(({ className, ...props }, forwardedRef) => (
+//   <TabsPrimitive.Content ref={forwardedRef} className={clsx(s.tabsContent, className)} {...props} />
+// ))
+// TabsContent.displayName = TabsPrimitive.Content.displayName
 
-export { Tabs, TabsList, TabsTrigger, TabsContent }
+export {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  // TabsContent
+  s,
+}
