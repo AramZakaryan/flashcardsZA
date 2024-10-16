@@ -19,6 +19,7 @@ export const SliderControlled: Story = {
     min: 0,
     step: 1,
     value: [2, 10],
+    label: 'Slider',
   },
   render: (args) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
