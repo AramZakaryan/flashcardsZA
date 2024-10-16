@@ -1,8 +1,24 @@
 // src/pages/decksPage.module.scss
 
+.rootContainer {
+  width: 1006px;
+  margin: 10px auto;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filterContainer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
 .searchInput {
   width: 300px;
-  margin: 24px 12px;
 }
 
 .pagination {

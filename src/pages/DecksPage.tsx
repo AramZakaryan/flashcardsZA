@@ -2,7 +2,17 @@
 
 import { DecksTable } from '@/pages/DecksTable'
 import { ChangeEvent, useState } from 'react'
-import { Button, Input, Pagination, PaginationProps, Sort } from '@/components'
+import {
+  Button,
+  H1span,
+  Input,
+  Pagination,
+  PaginationProps,
+  Slider,
+  Sort,
+  Tabs,
+  TrashOutline,
+} from '@/components'
 import s from './decksPage.module.scss'
 import { useDebounce } from '@/hooks/useDebounce'
 import { useSearchParams } from 'react-router-dom'
@@ -27,6 +37,7 @@ export function DecksPage({
   const [searchParams, setSearchParams] = useSearchParams()
   const [newCurrentPage, setNewCurrentPage] = useState(1)
   const [pageSize, setPageSize] = useState(initialPageSize)
+  const [sliderValue, setSliderValue] = useState([0, 12])
 
   const DebouncedSearch = useDebounce(searchParams.get('name'), 400)
 
@@ -82,24 +93,47 @@ export function DecksPage({
   }
 
   return (
-    <div style={{ width: '1006px', margin: '0 auto' }}>
-      <Button
-        variant={'primary'}
-        disabled={isLoading}
-        onClick={() => {
-          createDeck({ name: '😼lalala' })
-        }}
-      >
-        Add New Deck
-      </Button>
-
-      <Input
-        value={searchParams.get('name') || undefined}
-        onChange={inputOnChangeHandler}
-        placeholder={'search'}
-        label={'Search'}
-        className={s.searchInput}
-      />
+    <div className={s.rootContainer}>
+      <div className={s.headerContainer}>
+        <H1span>Decks list</H1span>
+        <Button
+          variant={'primary'}
+          disabled={isLoading}
+          onClick={() => {
+            createDeck({ name: '😼lalala' })
+          }}
+        >
+          Add New Deck
+        </Button>
+      </div>
+      <div className={s.filterContainer}>
+        <Input
+          variant={'search'}
+          value={searchParams.get('name') || undefined}
+          onChange={inputOnChangeHandler}
+          placeholder={'search'}
+          className={s.searchInput}
+        />
+        <Tabs
+          label={'Show decks cards'}
+          options={[
+            { value: 'myDecks', text: 'My Decks' },
+            { value: 'allDecks', text: 'All Decks' },
+          ]}
+        />
+        <Slider
+          label={'Number of cards'}
+          min={0}
+          max={12}
+          step={1}
+          value={sliderValue}
+          onValueChange={setSliderValue}
+        />
+        <Button variant={'secondary'} onClick={() => {}}>
+          <TrashOutline width={16} />
+          Clear filter
+        </Button>
+      </div>
       <DecksTable
         decks={items}
         onSort={onSortHandler}
