@@ -50,7 +50,7 @@ export const DecksTable = ({ decks, onSort, sort }: DecksTableProps) => {
     },
   ]
   return (
-    <Table>
+    <Table className={s.table}>
       <THeadWithSort columns={columns} onSort={onSort} sort={sort} />
       <TBody>
         {decks?.map((deck) => {
@@ -71,9 +71,7 @@ export const DecksTable = ({ decks, onSort, sort }: DecksTableProps) => {
                       deleteDeck({ id: deck?.id })
                     }
                   }}
-                >
-                  Delete Deck
-                </TrashOutline>
+                />
               </Td>
             </Tr>
           )
