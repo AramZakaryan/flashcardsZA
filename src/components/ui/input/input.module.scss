@@ -13,11 +13,9 @@
   resize: none;
 
   width: 100%;
-  padding: 6px 12px;
+  padding: 5px 12px;
 
-  font-family: var(--font-family-primary), sans-serif;
-  font-size: var(--font-size-m-16);
-  line-height: var(--line-height-m-24);
+  font: var(--font-body-1);
   color: var(--color-dark-100);
 
   background-color: transparent;

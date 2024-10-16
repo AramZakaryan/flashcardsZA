@@ -9,17 +9,29 @@ export type TabsProps = {
   options?: {
     value: string
     text: string
+    disabled?: boolean
   }[]
 } & ComponentPropsWithoutRef<typeof TabsPrimitive.Root>
 
-export const Tabs = ({ label, className, options }: TabsProps) => {
+export const Tabs = ({
+  label,
+  className,
+  options,
+  defaultValue = options?.[0].value,
+  ...restProps
+}: TabsProps) => {
   return (
     <div className={clsx(s.mainContainer, className)}>
       <Body2span>{label}</Body2span>
-      <TabsPrimitive.Root className={s.root}>
+      <TabsPrimitive.Root className={s.root} defaultValue={defaultValue} {...restProps}>
         <TabsPrimitive.List className={s.tabsList}>
-          {options?.map(({ value, text }) => (
-            <TabsPrimitive.Trigger key={value} value={value} className={s.tabsTrigger}>
+          {options?.map(({ value, text, disabled }) => (
+            <TabsPrimitive.Trigger
+              key={value}
+              value={value}
+              disabled={disabled}
+              className={s.tabsTrigger}
+            >
               {text}
             </TabsPrimitive.Trigger>
           ))}
