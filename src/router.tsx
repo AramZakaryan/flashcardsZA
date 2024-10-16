@@ -5,12 +5,18 @@ import {
   RouteObject,
   RouterProvider,
 } from 'react-router-dom'
-import { DecksPage } from '@/pages/DecksPage'
+import { DeckPage, DecksPage, SignInPage } from '@/pages'
+import { Layout } from '@/components'
 
 const publicRoutes: RouteObject[] = [
   {
-    path: '/login',
-    element: <div>login</div>,
+    children: [
+      {
+        path: '/login',
+        element: <SignInPage />,
+      },
+    ],
+    element: <Outlet />,
   },
 ]
 
@@ -19,21 +25,30 @@ const privateRoutes: RouteObject[] = [
     path: '/',
     element: <DecksPage />,
   },
+  {
+    path: '/decks/:deckId',
+    element: <DeckPage />,
+  },
 ]
 
 const router = createBrowserRouter([
   {
-    element: <PrivateRoutes />,
-    children: privateRoutes,
+    children: [
+      {
+        children: privateRoutes,
+        element: <PrivateRoutes />,
+      },
+      ...publicRoutes,
+    ],
+    element: <Layout />,
   },
-  ...publicRoutes,
 ])
 
 export function Router() {
   return <RouterProvider router={router} />
 }
 
-function PrivateRoutes() {
+function PrivateRoutes({}) {
   const isAuthenticated = true
 
   return isAuthenticated ? <Outlet /> : <Navigate to="/login" />
