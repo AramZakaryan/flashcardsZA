@@ -1,6 +1,6 @@
 // src/pages/DecksPage.tsx
 
-import { DecksTable } from '@/pages/DecksTable'
+import { DecksTable } from '@/pages/decksPage/DecksTable'
 import { ChangeEvent, useState } from 'react'
 import {
   Button,
@@ -26,8 +26,8 @@ const defaultPaginationOptions = [
 ]
 
 type DecksPageProps = {
-  paginationSelectOptions: PaginationProps['selectOptions']
-  initialPageSize: number
+  paginationSelectOptions?: PaginationProps['selectOptions']
+  initialPageSize?: number
 }
 
 export function DecksPage({
