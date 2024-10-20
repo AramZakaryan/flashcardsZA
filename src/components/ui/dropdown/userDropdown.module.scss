@@ -2,6 +2,10 @@ button {
   all: unset;
 }
 
+.IconButton {
+  height: 36px;
+}
+
 .DropdownMenuContent {
   min-width: 217px;
   background-color: var(--color-dark-700);
