@@ -18,13 +18,13 @@ export const CardEmpty: Story = {
 
 export const CardWithTitle: Story = {
   args: {
-    title: 'Card Title',
+    title: 'Page Title',
   },
 }
 
 export const CardWithChildren: Story = {
   args: {
-    title: 'Card Title',
+    title: 'Page Title',
     children: (
       <>
         <p style={{ textAlign: 'justify' }}>
