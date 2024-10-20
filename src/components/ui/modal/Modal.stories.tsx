@@ -89,11 +89,11 @@ export const ModalAddNewDeck: Story = {
 
 export const ModalAddNewCard: Story = {
   args: {
-    title: 'Add New Card',
-    primaryButtonName: 'Add New Card',
+    title: 'Add New Page',
+    primaryButtonName: 'Add New Page',
   },
   argTypes: {
-    onClickPrimary: { action: 'onClick Add New Card' },
+    onClickPrimary: { action: 'onClick Add New Page' },
   },
   render: (args) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -128,11 +128,11 @@ export const ModalAddNewCard: Story = {
 
 export const ModalDeleteCard: Story = {
   args: {
-    title: 'Delete Card',
-    primaryButtonName: 'Delete Card',
+    title: 'Delete Page',
+    primaryButtonName: 'Delete Page',
   },
   argTypes: {
-    onClickPrimary: { action: 'onClick Delete Card' },
+    onClickPrimary: { action: 'onClick Delete Page' },
   },
   render: (args) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
