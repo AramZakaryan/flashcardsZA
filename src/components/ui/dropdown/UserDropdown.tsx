@@ -1,5 +1,4 @@
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
-import johnImage from '@/assets/image/john.png'
 import s from './userDropdown.module.scss'
 import { Avatar, Caption, LogOutOutline, PersonOutline, Subtitle2span } from '@/components'
 import { clsx } from 'clsx'
@@ -29,7 +28,7 @@ const UserDropdown = ({ avatar, name, email, onSignOut, ...restProps }: UserDrop
           </DropdownMenuPrimitive.Arrow>
 
           <DropdownMenuPrimitive.Item className={s.DropdownMenuItem}>
-            <Avatar variant={'small'} src={johnImage} />
+            <Avatar variant={'small'} src={avatar} />
             <div className={clsx(s.RightSlot, s.userInfo)}>
               <Subtitle2span>{name}</Subtitle2span>
               <Caption className={s.email}>{email}</Caption>
