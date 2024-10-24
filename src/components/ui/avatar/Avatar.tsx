@@ -5,15 +5,15 @@ import person from '@/assets/svg/icons/person.svg'
 
 export type AvatarProps = {
   variant?: 'small' | 'large'
-} & ComponentPropsWithoutRef<'img'>
+  src?: string | null
+} & Omit<ComponentPropsWithoutRef<'img'>, 'src'>
 
-export const Avatar = ({
-  variant = 'small',
-  className,
-  src = person,
-  ...restProps
-}: AvatarProps) => {
+export const Avatar = ({ variant = 'small', className, src, ...restProps }: AvatarProps) => {
   return (
-    <img src={src} className={clsx(s.avatar, s[variant], s.person, className)} {...restProps} />
+    <img
+      src={src || person}
+      className={clsx(s.avatar, s[variant], s.person, className)}
+      {...restProps}
+    />
   )
 }
