@@ -4,11 +4,9 @@ import { Avatar, Caption, LogOutOutline, PersonOutline, Subtitle2span } from '@/
 import { clsx } from 'clsx'
 import { ComponentPropsWithoutRef } from 'react'
 import { Link } from 'react-router-dom'
+import { User } from '@/services/auth'
 
-export type UserDropdownProps = {
-  avatar?: string
-  name?: string
-  email?: string
+export type UserDropdownProps = Partial<Pick<User, 'avatar' | 'name' | 'email'>> & {
   onSignOut?: ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>['onSelect']
 } & ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Root>
 
