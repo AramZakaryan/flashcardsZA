@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { passwordSchema } from '@/utils'
 import { DevTool } from '@hookform/devtools'
-import s from './createNewPassword.module.scss'
+import s from './createNewPass.module.scss'
 
 const createNewPasswordSchema = z.object({
   password: passwordSchema,
@@ -16,12 +16,12 @@ type CreateNewPasswordProps = {
   onSubmit?: (data: CreateNewPasswordFormValues) => void
 }
 
-export const CreateNewPassword = ({ onSubmit }: CreateNewPasswordProps) => {
+export const CreateNewPasswordForm = ({ onSubmit }: CreateNewPasswordProps) => {
   const { control, handleSubmit } = useForm<CreateNewPasswordFormValues>({
     resolver: zodResolver(createNewPasswordSchema),
   })
 
-  const onSubmitHandler = handleSubmit((data) => {
+  const onSubmitHandler = handleSubmit(data => {
     onSubmit?.(data)
   })
 
