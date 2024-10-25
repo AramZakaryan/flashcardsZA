@@ -6,7 +6,6 @@ import {
   Outlet,
   RouteObject,
   RouterProvider,
-  useOutletContext,
 } from 'react-router-dom'
 import {
   DeckPage,
@@ -17,15 +16,25 @@ import {
   SignUpPage,
 } from '@/pages'
 import { Layout } from '@/components'
+import { useAppSelector } from '@/services/store'
 
 const publicRoutes: RouteObject[] = [
   {
-    path: '/logIn',
-    element: <LogInPage />,
-  },
-  {
-    path: '/signup',
-    element: <SignUpPage />,
+    element: <Outlet />,
+    children: [
+      {
+        path: '/logIn',
+        element: <LogInPage />,
+      },
+      {
+        path: '/signup',
+        element: <SignUpPage />,
+      },
+      {
+        path: '/forgotpass',
+        element: <ForgotPasswordPage />,
+      },
+    ],
   },
 ]
 
@@ -39,16 +48,12 @@ const privateRoutes: RouteObject[] = [
     element: <DeckPage />,
   },
   {
-    path: '/forgotpassword',
-    element: <ForgotPasswordPage />,
-  },
-  {
     path: '/profile',
     element: <ProfilePage />,
   },
 ]
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
@@ -56,6 +61,7 @@ export const router = createBrowserRouter([
         element: <PrivateRoutes />,
         children: privateRoutes,
       },
+      // ...publicRoutes,
       {
         element: <PublicRoutes />,
         children: publicRoutes,
@@ -69,13 +75,13 @@ export function Router() {
 }
 
 function PrivateRoutes() {
-  const isAuth = useOutletContext()
+  const isAuth = useAppSelector(state => state.auth.isAuth)
+
   return isAuth ? <Outlet /> : <Navigate to="/login" />
 }
 
 function PublicRoutes() {
-  // todo: this creates infinite loop, should be corrected
-  // const isAuth = useOutletContext()
-  // return isAuth ? <Navigate to="/" /> : <Outlet />
-  return <Outlet />
+  const isAuth = useAppSelector(state => state.auth.isAuth)
+
+  return isAuth ? <Navigate to="/" /> : <Outlet />
 }

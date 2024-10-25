@@ -3,6 +3,7 @@
 import { fetchBaseQuery } from '@reduxjs/toolkit/query'
 import type { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query/react'
 import { Mutex } from 'async-mutex'
+import { loggedOut } from '@/services/auth/auth.slice'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: 'https://api.flashcards.andrii.es',
@@ -39,7 +40,8 @@ export const baseQueryWithReauth: BaseQueryFn<
           result = await baseQuery(args, api, extraOptions) // retry the initial query
         } else {
           // this causes errors for storybook
-          // await router.navigate('/login')
+          // return await router.navigate('/login')
+          api.dispatch(loggedOut())
         }
       } finally {
         release() // unlock the mutex

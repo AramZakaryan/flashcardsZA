@@ -6,7 +6,7 @@ const meta = {
   component: UserDropdown,
   parameters: {},
   argTypes: {
-    onSignOut: {
+    logOut: {
       action: 'signOut',
     },
   },

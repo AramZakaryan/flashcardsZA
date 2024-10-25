@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom'
 import { User } from '@/services/auth'
 
 export type UserDropdownProps = Partial<Pick<User, 'avatar' | 'name' | 'email'>> & {
-  onSignOut?: ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>['onSelect']
+  logOut?: ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>['onSelect']
 } & ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Root>
 
-const UserDropdown = ({ avatar, name, email, onSignOut, ...restProps }: UserDropdownProps) => {
+const UserDropdown = ({ avatar, name, email, logOut, ...restProps }: UserDropdownProps) => {
   return (
     <DropdownMenuPrimitive.Root {...restProps}>
       <DropdownMenuPrimitive.Trigger asChild>
@@ -44,7 +44,7 @@ const UserDropdown = ({ avatar, name, email, onSignOut, ...restProps }: UserDrop
 
           <DropdownMenuPrimitive.Separator className={s.DropdownMenuSeparator} />
 
-          <DropdownMenuPrimitive.Item onSelect={onSignOut} className={s.DropdownMenuItem}>
+          <DropdownMenuPrimitive.Item onSelect={logOut} className={s.DropdownMenuItem}>
             <LogOutOutline width={16} />
             <Caption className={s.email}>Sign Out</Caption>
           </DropdownMenuPrimitive.Item>
