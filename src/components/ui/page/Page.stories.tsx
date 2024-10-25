@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Page } from './'
-import { SignIn } from '@/components'
+import { LogInForm } from '@/components'
 
 const meta = {
   component: Page,
@@ -20,6 +20,6 @@ export const PageDefault: Story = {
 
 export const PageWithSignIn: Story = {
   args: {
-    children: <SignIn />,
+    children: <LogInForm />,
   },
 }
