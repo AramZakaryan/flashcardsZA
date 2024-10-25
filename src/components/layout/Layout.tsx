@@ -5,9 +5,9 @@ import { ComponentPropsWithoutRef } from 'react'
 import { Header } from '@/components'
 import { clsx } from 'clsx'
 import { Outlet } from 'react-router-dom'
-import { useMeQuery } from '@/services/auth'
-import { useAppDispatch } from '@/services/store'
-import { loggedIn, loggedOut } from '@/services/auth/auth.slice'
+import { useMeQuery } from '@/services'
+import { useAppDispatch } from '@/services'
+import { loggedIn, loggedOut } from '@/services'
 
 export type LayoutProps = ComponentPropsWithoutRef<'div'>
 

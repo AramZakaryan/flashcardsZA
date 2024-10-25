@@ -20,10 +20,10 @@ export type Deck = {
   created: string
   updated: string
   cardsCount: number
-  author: User
+  author: Author
 }
 
-export type User = {
+export type Author = {
   id: string
   name: string
 }

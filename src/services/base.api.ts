@@ -9,8 +9,3 @@ export const baseApi = createApi({
   tagTypes: ['Decks', 'Me'],
   endpoints: () => ({}),
 })
-// baseQuery: baseQueryWithReauth,
-// baseQuery: fetchBaseQuery({
-//   baseUrl: 'https://api.flashcards.andrii.es',
-//   credentials: 'include',
-// }),
