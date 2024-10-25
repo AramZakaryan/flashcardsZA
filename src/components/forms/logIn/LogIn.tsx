@@ -44,14 +44,14 @@ export const LogInForm = ({ onSubmit }: SignInProps) => {
         control={control}
         className={s.rememberMe}
       />
-      <Button as={'a'} variant={'text'} href={'/forgot-password'} className={s.forgotPassword}>
+      <Button as={'a'} variant={'text'} href={'/forgotpass'} className={s.forgotPassword}>
         Forgot Password?
       </Button>
       <Button type={'submit'} fullWidth className={s.buttonSignIn}>
         Sign in
       </Button>
       <Body2span>{"Don't have an account?"}</Body2span>
-      <Link0 href={'/sign-up'}>Sign Up</Link0>
+      <Link0 href={'/signup'}>Sign Up</Link0>
     </Card>
   )
 }
