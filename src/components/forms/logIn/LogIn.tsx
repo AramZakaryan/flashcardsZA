@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { Body2span, Button, Card, ControlledInput, Link0 } from '@/components'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import s from './signIn.module.scss'
+import s from './logIn.module.scss'
 import { emailSchema, passwordSchema, rememberMeSchema } from '@/utils'
 import { ControlledCheckbox } from '@/components/ui/checkbox/ControlledCheckbox'
 import { DevTool } from '@hookform/devtools'
@@ -19,12 +19,12 @@ type SignInProps = {
   onSubmit?: (data: SignInFormValues) => void
 }
 
-export const SignIn = ({ onSubmit }: SignInProps) => {
+export const LogInForm = ({ onSubmit }: SignInProps) => {
   const { control, handleSubmit } = useForm<SignInFormValues>({
     resolver: zodResolver(signInSchema),
   })
 
-  const onSubmitHandler = handleSubmit((data) => {
+  const onSubmitHandler = handleSubmit(data => {
     onSubmit?.(data)
   })
 
@@ -44,14 +44,14 @@ export const SignIn = ({ onSubmit }: SignInProps) => {
         control={control}
         className={s.rememberMe}
       />
-      <Button as={'a'} variant={'text'} href={'#'} className={s.forgotPassword}>
+      <Button as={'a'} variant={'text'} href={'/forgot-password'} className={s.forgotPassword}>
         Forgot Password?
       </Button>
-      <Button type="submit" fullWidth className={s.buttonSignIn}>
+      <Button type={'submit'} fullWidth className={s.buttonSignIn}>
         Sign in
       </Button>
-      <Body2span>Don&#39;t have an account?</Body2span>
-      <Link0 href={'#'}>Sign Up</Link0>
+      <Body2span>{"Don't have an account?"}</Body2span>
+      <Link0 href={'/sign-up'}>Sign Up</Link0>
     </Card>
   )
 }

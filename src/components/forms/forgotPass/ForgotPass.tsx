@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { emailSchema } from '@/utils'
 import { DevTool } from '@hookform/devtools'
-import s from './forgotPassword.module.scss'
+import s from './forgotPass.module.scss'
 
 const forgotPasswordSchema = z.object({
   email: emailSchema,
@@ -16,12 +16,12 @@ type ForgotPasswordProps = {
   onSubmit?: (data: ForgotPasswordFormValues) => void
 }
 
-export const ForgotPassword = ({ onSubmit }: ForgotPasswordProps) => {
+export const ForgotPasswordForm = ({ onSubmit }: ForgotPasswordProps) => {
   const { control, handleSubmit } = useForm<ForgotPasswordFormValues>({
     resolver: zodResolver(forgotPasswordSchema),
   })
 
-  const onSubmitHandler = handleSubmit((data) => {
+  const onSubmitHandler = handleSubmit(data => {
     onSubmit?.(data)
   })
 
