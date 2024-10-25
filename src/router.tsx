@@ -16,7 +16,7 @@ import {
   SignUpPage,
 } from '@/pages'
 import { Layout } from '@/components'
-import { useAppSelector } from '@/services/store'
+import { useAppSelector } from '@/services'
 
 const publicRoutes: RouteObject[] = [
   {
