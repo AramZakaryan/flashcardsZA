@@ -53,7 +53,7 @@ export const SignUp = ({ onSubmit }: SignUpProps) => {
         Sign Up
       </Button>
       <Body2span>Already have an account?</Body2span>
-      <Link0 href={'#'}>Sign In</Link0>
+      <Link0 href={'/login'}>Sign In</Link0>
     </Card>
   )
 }
