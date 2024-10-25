@@ -1,6 +1,6 @@
 // src/pages/DecksPage.tsx
 
-import { DecksTable } from '@/pages/decksPage/DecksTable'
+import { DecksTable } from '@/pages/decksPage/decksTable/DecksTable'
 import { ChangeEvent, useState } from 'react'
 import {
   Button,
@@ -51,6 +51,16 @@ export function DecksPage({
     orderBy: (searchParams.get('sort') as OrderBy) || null,
     itemsPerPage: pageSize,
   })
+
+  // console.log(data)
+
+  // const { data: dataGetDeck } = useGetDeckQuery({
+  //   deckId: 'cm2acz32g03g1jq016ldg154e',
+  // })
+
+  // if (dataGetDeck) {
+  //   console.log(dataGetDeck)
+  // }
 
   // ZA: Safe destructuring (data and its properties can be undefined)
   const {
@@ -152,9 +162,9 @@ export function DecksPage({
         pageSize={itemsPerPage}
         totalCount={totalItems}
         className={s.pagination}
-        setPageSize={(pageSize) => setPageSize(pageSize)}
+        setPageSize={pageSize => setPageSize(pageSize)}
         selectOptions={paginationSelectOptions}
-        defaultValue={paginationSelectOptions?.find((option) => +option.text === pageSize)?.value}
+        defaultValue={paginationSelectOptions?.find(option => +option.text === pageSize)?.value}
       />
     </div>
   )
