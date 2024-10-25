@@ -2,14 +2,19 @@
 
 import { configureStore } from '@reduxjs/toolkit'
 
-import { baseApi } from './baseApi'
+import { baseApi } from './base.api'
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseApi.middleware),
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(baseApi.middleware),
 })
 
 export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof store.getState>
+
+export const useAppDispatch: () => AppDispatch = useDispatch
+
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector

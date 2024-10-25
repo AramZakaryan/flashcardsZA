@@ -1,4 +1,4 @@
-export type DecksListResponse = {
+export type DecksList = {
   items: Deck[]
   pagination: Pagination
   maxCardsCount: number
@@ -26,6 +26,10 @@ export type Deck = {
 export type User = {
   id: string
   name: string
+}
+
+export type GetDeckArgs = {
+  deckId?: string
 }
 
 export type GetDecksArgs = {
