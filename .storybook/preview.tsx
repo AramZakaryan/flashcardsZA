@@ -2,10 +2,16 @@ import type { Preview } from '@storybook/react'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/700.css'
 import '../src/styles/index.scss'
-import { BrowserRouter } from 'react-router-dom'
+import { reactRouterParameters, withRouter } from 'storybook-addon-react-router-v6'
 
 const preview: Preview = {
   parameters: {
+    reactRouter: reactRouterParameters({
+      routing: {
+        handle: 'Nav',
+        path: '*',
+      },
+    }),
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -14,11 +20,12 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => (
-      <BrowserRouter>
-        <Story />
-      </BrowserRouter>
-    ),
+    withRouter,
+    // Story => (
+    //   <BrowserRouter>
+    //     <Story />
+    //   </BrowserRouter>
+    // ),
   ],
 }
 
