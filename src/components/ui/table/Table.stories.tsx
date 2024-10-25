@@ -64,23 +64,23 @@ export const TableDefault: Story = {
 export const THeaderWithSort: Story = {
   render: () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [sort, setSort] = useState<Sort>({ direction: 'asc', key: 'Name' })
+    const [sort, setSort] = useState<Sort>({ direction: 'asc', key: 'name' })
 
     const columns: Column[] = [
       {
-        key: 'Name',
+        key: 'name',
         title: 'Name',
       },
       {
-        key: 'Cards',
+        key: 'cardsCount',
         title: 'Cards',
       },
       {
-        key: 'Last Updated',
+        key: 'updated',
         title: 'Last Updated',
       },
       {
-        key: 'Created By',
+        key: 'created',
         title: 'Created By',
       },
     ]
@@ -89,7 +89,7 @@ export const THeaderWithSort: Story = {
       <Table>
         <THeadWithSort
           columns={columns}
-          onSort={(sort) => {
+          onSort={sort => {
             setSort(sort)
             action('on Sort')(sort)
           }}
