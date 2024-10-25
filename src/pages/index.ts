@@ -1,3 +1,6 @@
 export * from './deckPage'
 export * from './decksPage'
-export * from './signInPage'
+export * from './forgotPasswordPage'
+export * from './logInPage'
+export * from './profilePage'
+export * from './signUpPage'

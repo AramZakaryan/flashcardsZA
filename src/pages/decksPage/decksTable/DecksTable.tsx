@@ -1,4 +1,4 @@
-import { DecksListResponse } from '@/services/decks/decks.types'
+import { DecksList } from '@/services/decks/decks.types'
 import {
   Column,
   Edit2Outline,
@@ -15,7 +15,7 @@ import s from './decksTable.module.scss'
 import { useDeleteDeckMutation } from '@/services/decks'
 
 type DecksTableProps = {
-  decks?: DecksListResponse['items']
+  decks?: DecksList['items']
 } & Omit<THeadWithSortProps, 'columns'>
 
 export const DecksTable = ({ decks, onSort, sort }: DecksTableProps) => {
@@ -53,7 +53,7 @@ export const DecksTable = ({ decks, onSort, sort }: DecksTableProps) => {
     <Table className={s.table}>
       <THeadWithSort columns={columns} onSort={onSort} sort={sort} />
       <TBody>
-        {decks?.map((deck) => {
+        {decks?.map(deck => {
           const updatedAt = new Date(deck.updated).toLocaleDateString('ru-RU')
           return (
             <Tr key={deck.id}>
