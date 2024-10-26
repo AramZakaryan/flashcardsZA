@@ -1,11 +1,13 @@
-// src/services/decks/decks.api.ts
+// src/services/decks/cards.api.ts
 
 import { baseApi } from '@/services/base.api'
 import {
+  CardsList,
   CreateDeckArgs,
   Deck,
   DecksList,
   DeleteDeckArgs,
+  GetCardsArgs,
   GetDeckArgs,
   GetDecksArgs,
 } from './decks.types'
@@ -42,9 +44,21 @@ const decksApi = baseApi.injectEndpoints({
         }),
         invalidatesTags: ['Decks'],
       }),
+      getCards: builder.query<CardsList, GetCardsArgs>({
+        query: ({ id, ...args }) => ({
+          url: `/v1/decks/${id}/cards`,
+          params: args ?? undefined,
+        }),
+        providesTags: ['Decks'],
+      }),
     }
   },
 })
 
-export const { useGetDecksQuery, useGetDeckQuery, useCreateDeckMutation, useDeleteDeckMutation } =
-  decksApi
+export const {
+  useGetDecksQuery,
+  useGetDeckQuery,
+  useCreateDeckMutation,
+  useDeleteDeckMutation,
+  useGetCardsQuery,
+} = decksApi
