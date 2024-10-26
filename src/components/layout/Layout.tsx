@@ -1,7 +1,7 @@
 // src/components/layout/Layout.tsx
 
 import s from './layout.module.scss'
-import { ComponentPropsWithoutRef } from 'react'
+import { ComponentPropsWithoutRef, useEffect } from 'react'
 import { Header } from '@/components'
 import { clsx } from 'clsx'
 import { Outlet } from 'react-router-dom'
@@ -20,11 +20,13 @@ export const Layout = ({ children, className, ...restProps }: LayoutProps) => {
 
   const { avatar, name, email } = data || {}
 
-  if (isData) {
-    dispatch(loggedIn())
-  } else {
-    dispatch(loggedOut())
-  }
+  useEffect(() => {
+    if (isData) {
+      dispatch(loggedIn())
+    } else {
+      dispatch(loggedOut())
+    }
+  }, [dispatch, isData])
 
   if (isLoading) return <h4>loading...</h4>
 
