@@ -56,15 +56,16 @@ export const THeadWithSort = ({ columns, sort, onSort, ...restProps }: THeadWith
         {columns.map(column => (
           <Th key={column.key} onClick={() => handleSort(column)}>
             {column.title}
-            <div className={s.iconContainer}>
-              {sort &&
-                sort.key === column.key &&
-                (sort.direction === 'asc' ? (
-                  <ArrowIosUp width={12} className={s.icon} />
-                ) : (
-                  <ArrowIosDownOutline width={12} className={s.icon} />
-                ))}
-            </div>
+            {sort && (
+              <div className={s.iconContainer}>
+                {sort.key === column.key &&
+                  (sort.direction === 'asc' ? (
+                    <ArrowIosUp width={12} className={s.icon} />
+                  ) : (
+                    <ArrowIosDownOutline width={12} className={s.icon} />
+                  ))}
+              </div>
+            )}
           </Th>
         ))}
       </Tr>
