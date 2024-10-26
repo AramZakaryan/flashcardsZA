@@ -2,7 +2,6 @@ import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 import { clsx } from 'clsx'
 import s from './table.module.scss'
 import { ArrowIosDownOutline, ArrowIosUp, Body2span, Subtitle2span } from '@/components'
-import { Direction, Key } from '@/services/decks/decks.types'
 
 export const Table = forwardRef<HTMLTableElement, ComponentPropsWithoutRef<'table'>>(
   ({ className, ...restProps }, forwardedRef) => {
@@ -20,15 +19,15 @@ THead.displayName = 'THead'
 
 export type Column = {
   /** ZA: key is the name of column used on backend */
-  key: Key
+  key: string
   title: string
   sortable?: boolean
 }
 
 export type Sort = {
   /** ZA: key is the name of column used on backend */
-  key: Key
-  direction: Direction
+  key: string
+  direction: 'asc' | 'desc'
 } | null
 
 export type THeadWithSortProps = {
@@ -54,7 +53,7 @@ export const THeadWithSort = ({ columns, sort, onSort, ...restProps }: THeadWith
   return (
     <THead {...restProps}>
       <Tr>
-        {columns.map((column) => (
+        {columns.map(column => (
           <Th key={column.key} onClick={() => handleSort(column)}>
             {column.title}
             <div className={s.iconContainer}>
