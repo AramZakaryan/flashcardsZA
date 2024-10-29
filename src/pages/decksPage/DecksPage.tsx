@@ -16,7 +16,7 @@ import {
 import s from './decksPage.module.scss'
 import { useDebounce } from '@/hooks/useDebounce'
 import { useSearchParams } from 'react-router-dom'
-import { OrderBy } from '@/services/decks/decks.types'
+import { DecksOrderBy } from '@/services/decks/decks.types'
 import { useCreateDeckMutation, useGetDecksQuery } from '@/services/decks'
 
 const defaultPaginationOptions = [
@@ -48,19 +48,9 @@ export function DecksPage({
   } = useGetDecksQuery({
     name: DebouncedSearch || undefined,
     currentPage: newCurrentPage,
-    orderBy: (searchParams.get('sort') as OrderBy) || null,
+    orderBy: (searchParams.get('sort') as DecksOrderBy) || null,
     itemsPerPage: pageSize,
   })
-
-  // console.log(data)
-
-  // const { data: dataGetDeck } = useGetDeckQuery({
-  //   deckId: 'cm2acz32g03g1jq016ldg154e',
-  // })
-
-  // if (dataGetDeck) {
-  //   console.log(dataGetDeck)
-  // }
 
   // ZA: Safe destructuring (data and its properties can be undefined)
   const {
