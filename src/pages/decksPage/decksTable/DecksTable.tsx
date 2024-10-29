@@ -45,7 +45,7 @@ export const DecksTable = ({ decks, onSort, sort }: DecksTableProps) => {
       title: 'Created By',
     },
     {
-      key: null,
+      key: '',
       title: '',
       sortable: false,
     },
