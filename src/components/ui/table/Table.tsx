@@ -38,7 +38,7 @@ export type THeadWithSortProps = {
 
 export const THeadWithSort = ({ columns, sort, onSort, ...restProps }: THeadWithSortProps) => {
   const handleSort = (column: Column): void => {
-    if (!onSort || !column.sortable) return
+    if (!onSort || column.sortable === false) return
 
     // ZA: Check if the clicked column is different from the currently sorted column
     if (column.key !== sort?.key) return onSort({ direction: 'asc', key: column.key })
