@@ -13,6 +13,7 @@ import {
 } from '@/components'
 import s from './decksTable.module.scss'
 import { useDeleteDeckMutation } from '@/services/decks'
+import { Link } from 'react-router-dom'
 
 type DecksTableProps = {
   decks?: DecksList['items']
@@ -57,7 +58,11 @@ export const DecksTable = ({ decks, onSort, sort }: DecksTableProps) => {
           const updatedAt = new Date(deck.updated).toLocaleDateString('ru-RU')
           return (
             <Tr key={deck.id}>
-              <Td>{deck.name}</Td>
+              <Td>
+                <Link to={`/decks/${deck.id}`} className={s.link}>
+                  {deck.name}
+                </Link>
+              </Td>
               <Td>{deck.cardsCount}</Td>
               <Td>{updatedAt}</Td>
               <Td>{deck.author.name}</Td>
