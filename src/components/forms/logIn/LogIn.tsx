@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import s from './logIn.module.scss'
 import { emailSchema, passwordSchema, rememberMeSchema } from '@/utils'
-import { ControlledCheckbox } from '@/components/ui/checkbox/ControlledCheckbox'
+import { ControlledCheckbox } from '@/components/controlled/ControlledCheckbox'
 import { DevTool } from '@hookform/devtools'
 
 const signInSchema = z.object({
