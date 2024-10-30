@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Modal } from '@/components/ui/modal/Modal'
+import { Modal } from '@/components/modals/Modal'
 import { useState } from 'react'
 import { Body1span, Button, Checkbox, ImageOutline, Input, Subtitle2span } from '@/components'
 import s from './modal.module.scss'
@@ -27,13 +27,13 @@ const meta = {
       ],
     },
   },
-  title: 'Components/Modal',
+  title: 'Modals/Default',
 } satisfies Meta<typeof Modal>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const ModalDefault: Story = {
+export const Default: Story = {
   args: {
     title: 'Title',
     primaryButtonName: 'Primary Button',
@@ -41,7 +41,7 @@ export const ModalDefault: Story = {
   argTypes: {
     onClickPrimary: { action: 'onClickPrimary' },
   },
-  render: (args) => {
+  render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = useState<boolean>(false)
     return (
@@ -53,7 +53,7 @@ export const ModalDefault: Story = {
   },
 }
 
-export const ModalAddNewDeck: Story = {
+export const CreateDeck: Story = {
   args: {
     title: 'Add New Deck',
     primaryButtonName: 'Add New Deck',
@@ -61,7 +61,7 @@ export const ModalAddNewDeck: Story = {
   argTypes: {
     onClickPrimary: { action: 'onClick Add New Deck' },
   },
-  render: (args) => {
+  render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = useState<boolean>(false)
     return (
@@ -95,7 +95,7 @@ export const ModalAddNewCard: Story = {
   argTypes: {
     onClickPrimary: { action: 'onClick Add New Page' },
   },
-  render: (args) => {
+  render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = useState<boolean>(false)
     return (
@@ -134,7 +134,7 @@ export const ModalDeleteCard: Story = {
   argTypes: {
     onClickPrimary: { action: 'onClick Delete Page' },
   },
-  render: (args) => {
+  render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [open, setOpen] = useState<boolean>(false)
     return (

@@ -3,11 +3,11 @@ import s from './modal.module.scss'
 import { Button, CloseOutline, H3span } from '@/components'
 import { ComponentPropsWithoutRef } from 'react'
 
-type ModalProps = {
-  // ZA: open and onOpenChange props can be used to control the opening/closing of Modal
+/** P.S. open and onOpenChange props can be used to control the opening/closing of Modal */
+export type ModalProps = {
   title?: string
   primaryButtonName?: string
-  onClickPrimary?: () => void
+  onClickPrimary?: (data: any) => void // todo: change any
 } & ComponentPropsWithoutRef<typeof Dialog.Root>
 
 export const Modal = ({

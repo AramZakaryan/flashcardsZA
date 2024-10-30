@@ -4,6 +4,8 @@ import { DecksTable } from '@/pages/decksPage/decksTable/DecksTable'
 import { ChangeEvent, useState } from 'react'
 import {
   Button,
+  CreateDeck,
+  CreateDeckValue,
   H1span,
   Input,
   Pagination,
@@ -39,6 +41,8 @@ export function DecksPage({
   const [pageSize, setPageSize] = useState(initialPageSize)
   const [sliderValue, setSliderValue] = useState([0, 12])
 
+  const [openCreateDeck, setOpenCreateDeck] = useState<boolean>(false)
+
   const DebouncedSearch = useDebounce(searchParams.get('name'), 400)
 
   const {
@@ -60,9 +64,14 @@ export function DecksPage({
 
   const [createDeck, { isLoading, error: errorCreateDeck }] = useCreateDeckMutation()
 
-  // if (isDecksLoading) {
-  //   return <h1>Loading...</h1>
-  // }
+  const createDeckHandler = async (data: CreateDeckValue) => {
+    try {
+      await createDeck(data)
+      setOpenCreateDeck(false)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   if (error) {
     return <div>Error: {JSON.stringify(error)}</div>
@@ -96,13 +105,7 @@ export function DecksPage({
     <div className={s.rootContainer}>
       <div className={s.headerContainer}>
         <H1span>Decks list</H1span>
-        <Button
-          variant={'primary'}
-          disabled={isLoading}
-          onClick={() => {
-            createDeck({ name: '😼lalala' })
-          }}
-        >
+        <Button variant={'primary'} disabled={isLoading} onClick={() => setOpenCreateDeck(true)}>
           Add New Deck
         </Button>
       </div>
@@ -155,6 +158,11 @@ export function DecksPage({
         setPageSize={pageSize => setPageSize(pageSize)}
         selectOptions={paginationSelectOptions}
         defaultValue={paginationSelectOptions?.find(option => +option.text === pageSize)?.value}
+      />
+      <CreateDeck
+        open={openCreateDeck}
+        onOpenChange={setOpenCreateDeck}
+        onClickPrimary={createDeckHandler}
       />
     </div>
   )
