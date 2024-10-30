@@ -1,10 +1,12 @@
-fieldset {
-  all: unset;
-}
-
 .DialogOverlay {
   position: fixed;
   inset: 0;
+
+  //z-index: 10;
+
+  background-color: var(--color-dialog-overlay);
+
+  //animation: overlay-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .DialogContent {
@@ -42,16 +44,6 @@ fieldset {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.Fieldset {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-
-  img {
-    width: 100%;
-  }
 }
 
 .deleteCardContainer {

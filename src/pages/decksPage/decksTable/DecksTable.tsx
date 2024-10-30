@@ -60,6 +60,7 @@ export const DecksTable = ({ decks, onSort, sort }: DecksTableProps) => {
             <Tr key={deck.id}>
               <Td>
                 <Link to={`/decks/${deck.id}`} className={s.link}>
+                  {deck.cover && <img src={deck.cover} alt={'deck cover'} className={s.cover} />}
                   {deck.name}
                 </Link>
               </Td>

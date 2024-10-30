@@ -1,0 +1,13 @@
+fieldset {
+  all: unset;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  img {
+    width: 100%;
+  }
+}
