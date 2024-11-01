@@ -19,7 +19,7 @@ import s from './decksPage.module.scss'
 import { useDebounce } from '@/hooks/useDebounce'
 import { useSearchParams } from 'react-router-dom'
 import { DecksOrderBy } from '@/services/decks/decks.types'
-import { useCreateDeckMutation, useGetDecksQuery } from '@/services/decks'
+import { useCreateDeckMutation, useGetDecksQuery, useGetMinMaxCardsQuery } from '@/services/decks'
 
 const defaultPaginationOptions = [
   { value: 'val1', text: '5' },
@@ -37,13 +37,13 @@ export function DecksPage({
   initialPageSize = 5,
 }: DecksPageProps) {
   const [searchParams, setSearchParams] = useSearchParams()
-  const [newCurrentPage, setNewCurrentPage] = useState(1)
-  const [pageSize, setPageSize] = useState(initialPageSize)
-  const [sliderValue, setSliderValue] = useState([0, 12])
 
   const [openCreateDeck, setOpenCreateDeck] = useState<boolean>(false)
 
   const DebouncedSearch = useDebounce(searchParams.get('name'), 400)
+
+  const { data: minMaxCards } = useGetMinMaxCardsQuery()
+  const { min: minCardsCount, max: maxCardsCount } = minMaxCards || {} // Safe destructuring (minMaxCards can be undefined)
 
   const {
     data,
@@ -51,16 +51,17 @@ export function DecksPage({
     error,
   } = useGetDecksQuery({
     name: DebouncedSearch || undefined,
-    currentPage: newCurrentPage,
+    currentPage: Number(searchParams.get('currentPage')) || 1,
     orderBy: (searchParams.get('sort') as DecksOrderBy) || null,
-    itemsPerPage: pageSize,
+    minCardsCount: Number(searchParams.get('minCardsCount')) || minCardsCount,
+    maxCardsCount: Number(searchParams.get('maxCardsCount')) || maxCardsCount,
+    itemsPerPage: Number(searchParams.get('pageSize')) || initialPageSize,
   })
 
-  // ZA: Safe destructuring (data and its properties can be undefined)
   const {
     items = [],
-    pagination: { currentPage = 1, itemsPerPage = pageSize, totalItems = 1 } = {},
-  } = data || {}
+    pagination: { currentPage = 1, itemsPerPage = initialPageSize, totalItems = 1 } = {},
+  } = data || {} // Safe destructuring (data and its properties can be undefined)
 
   const [createDeck, { isLoading, error: errorCreateDeck }] = useCreateDeckMutation()
 
@@ -101,6 +102,23 @@ export function DecksPage({
     }
   }
 
+  const sliderOnChangeHandler = (value: number[]) => {
+    searchParams.set('minCardsCount', String(value[0]))
+    searchParams.set('maxCardsCount', String(value[1]))
+    searchParams.set('currentPage', '1')
+    setSearchParams(searchParams)
+  }
+
+  const paginationOnPageChangeHandler = (page: number) => {
+    searchParams.set('currentPage', String(page))
+    setSearchParams(searchParams)
+  }
+
+  const paginationOnPageSizeChangeHandler = (pageSize: number) => {
+    searchParams.set('pageSize', String(pageSize))
+    setSearchParams(searchParams)
+  }
+
   return (
     <div className={s.rootContainer}>
       <div className={s.headerContainer}>
@@ -126,11 +144,14 @@ export function DecksPage({
         />
         <Slider
           label={'Number of cards'}
-          min={0}
-          max={12}
+          min={minCardsCount}
+          max={maxCardsCount}
           step={1}
-          value={sliderValue}
-          onValueChange={setSliderValue}
+          value={[
+            Number(searchParams.get('minCardsCount')) || minCardsCount || 0,
+            Number(searchParams.get('maxCardsCount')) || maxCardsCount || 99,
+          ]}
+          onValueChange={sliderOnChangeHandler}
         />
         <Button variant={'secondary'} onClick={() => {}}>
           <TrashOutline width={16} />
@@ -151,13 +172,13 @@ export function DecksPage({
       />
       <Pagination
         currentPage={currentPage}
-        onChangePage={setNewCurrentPage}
+        onChangePage={paginationOnPageChangeHandler}
         pageSize={itemsPerPage}
         totalCount={totalItems}
         className={s.pagination}
-        setPageSize={pageSize => setPageSize(pageSize)}
+        setPageSize={paginationOnPageSizeChangeHandler}
         selectOptions={paginationSelectOptions}
-        defaultValue={paginationSelectOptions?.find(option => +option.text === pageSize)?.value}
+        defaultValue={paginationSelectOptions?.find(option => +option.text === itemsPerPage)?.value}
       />
       <CreateDeck
         open={openCreateDeck}

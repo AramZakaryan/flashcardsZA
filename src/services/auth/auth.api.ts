@@ -2,28 +2,29 @@
 
 import { baseApi } from '../base.api'
 import { MeResponse, LogInArgs, LogInResponse } from './auth.types'
+import { METHODS, URLS } from '@/services'
 
 export const authApi = baseApi.injectEndpoints({
   endpoints: builder => {
     return {
       me: builder.query<MeResponse, void>({
         query: () => ({
-          url: `v1/auth/me`,
+          url: URLS.AUTH.ME,
         }),
         providesTags: ['Me'],
       }),
       logIn: builder.mutation<LogInResponse, LogInArgs>({
         query: args => ({
-          url: `/v1/auth/login`,
+          url: URLS.AUTH.LOG_IN,
           body: args,
-          method: 'POST',
+          method: METHODS.POST,
         }),
         invalidatesTags: ['Me'],
       }),
       logOut: builder.mutation<void, void>({
         query: () => ({
-          url: `/v1/auth/logout`,
-          method: 'POST',
+          url: URLS.AUTH.LOG_OUT,
+          method: METHODS.POST,
         }),
         // invalidatesTags: ['Me'],
       }),
@@ -31,4 +32,4 @@ export const authApi = baseApi.injectEndpoints({
   },
 })
 
-export const { useMeQuery, useLogInMutation, useLogOutMutation } = authApi
+export const { useMeQuery, useLazyMeQuery, useLogInMutation, useLogOutMutation } = authApi

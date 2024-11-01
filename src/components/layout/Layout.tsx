@@ -1,32 +1,23 @@
 // src/components/layout/Layout.tsx
 
 import s from './layout.module.scss'
-import { ComponentPropsWithoutRef, useEffect } from 'react'
+import { ComponentPropsWithoutRef } from 'react'
 import { Header } from '@/components'
 import { clsx } from 'clsx'
 import { Outlet } from 'react-router-dom'
 import { useMeQuery } from '@/services'
-import { useAppDispatch } from '@/services'
-import { loggedIn, loggedOut } from '@/services'
+
+// type AuthContext = {
+//   isAuthenticated: boolean
+// }
 
 export type LayoutProps = ComponentPropsWithoutRef<'div'>
 
-// ZA: this components may be changed according to the Header changes
 export const Layout = ({ children, className, ...restProps }: LayoutProps) => {
-  const dispatch = useAppDispatch()
-
   const { data, isError, isLoading } = useMeQuery()
-  const isData = !isError && !isLoading
+  const isAuth = !isError && !isLoading
 
   const { avatar, name, email } = data || {}
-
-  useEffect(() => {
-    if (isData) {
-      dispatch(loggedIn())
-    } else {
-      dispatch(loggedOut())
-    }
-  }, [dispatch, isData])
 
   if (isLoading) return <h4>loading...</h4>
 
@@ -34,7 +25,7 @@ export const Layout = ({ children, className, ...restProps }: LayoutProps) => {
     <div className={clsx(s.layout, className)} {...restProps}>
       <Header avatar={avatar} name={name} email={email} />
       <div className={s.layoutContent}>
-        <Outlet />
+        <Outlet context={{ isAuth }} />
         {children}
       </div>
     </div>

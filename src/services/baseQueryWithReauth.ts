@@ -3,10 +3,13 @@
 import { fetchBaseQuery } from '@reduxjs/toolkit/query'
 import type { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query/react'
 import { Mutex } from 'async-mutex'
-import { loggedOut } from '@/services/auth/auth.slice'
+import { privateRoutes, router } from '@/routes/Router'
+import { matchPath } from 'react-router-dom'
+import { METHODS, URLS } from './urls'
+import { ROUTES } from '@/routes'
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'https://api.flashcards.andrii.es',
+  baseUrl: URLS.BASE_URL,
   credentials: 'include',
   // prepareHeaders: headers => {
   // headers.append('x-auth-skip', 'true')
@@ -30,7 +33,7 @@ export const baseQueryWithReauth: BaseQueryFn<
       try {
         // try to get a new token
         const refreshResult = await baseQuery(
-          { url: '/v1/auth/refresh-token', method: 'POST' },
+          { url: URLS.AUTH.REFRESH_TOKEN, method: METHODS.POST },
           api,
           extraOptions
         )
@@ -39,9 +42,13 @@ export const baseQueryWithReauth: BaseQueryFn<
           // retry the initial query
           result = await baseQuery(args, api, extraOptions) // retry the initial query
         } else {
-          // this causes errors for storybook
-          // return await router.navigate('/login')
-          api.dispatch(loggedOut())
+          const isPrivateRoute = privateRoutes.find(route =>
+            matchPath(route.path ?? '', window.location.pathname)
+          )
+
+          if (isPrivateRoute) {
+            void router.navigate(ROUTES.LOG_IN)
+          }
         }
       } finally {
         release() // unlock the mutex
