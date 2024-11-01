@@ -29,7 +29,7 @@ export type Author = {
 }
 
 export type GetDeckArgs = {
-  deckId?: string
+  deckId: string
 }
 
 export type GetDecksArgs = {
@@ -79,7 +79,7 @@ export type Card = {
 }
 
 export type GetCardsArgs = {
-  id?: string
+  id: string
   orderBy?: CardsOrderBy
   question?: string // min: 1, max: 30
   answer?: string // min: 1, max: 30
@@ -90,3 +90,8 @@ export type GetCardsArgs = {
 export type CardsOrderBy = `${CardKey}-${Direction}` | null
 /** ZA: CardKey is the name of column used on backend */
 export type CardKey = 'question' | 'answer' | 'updated' | 'grade' | 'created'
+
+export type MinMaxCardsCount = {
+  max: number
+  min: number
+}

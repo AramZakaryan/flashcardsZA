@@ -1,6 +1,6 @@
 // src/App.tsx
 
-import { Router } from '@/router'
+import { Router } from '@/routes/Router'
 import { Provider } from 'react-redux'
 import { store } from '@/services/store'
 import { ToastContainer } from 'react-toastify'
